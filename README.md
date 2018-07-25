@@ -6,6 +6,8 @@ Sovellus voi auttaa esimerkiksi, kun koealueena on kirja (ei välttämättä val
 
 Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäjän syötettyä oma vastauksensa, näytetään mallivastaus. Tämän jälkeen käyttäjä voi arioida osaamistaan vertaamalla sitä mallivastaukseen ja asettamalla vastaukselleen arvosanan. Kuulusteluaineistoa voi rajata itsearvioinnin perusteella.
 
+Linkki herokuun: https://tenttibot.herokuapp.com/
+
 ## Perusversion toiminnallisuus
 
 * Kirjautuminen
