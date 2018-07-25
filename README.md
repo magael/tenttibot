@@ -17,6 +17,7 @@ Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa j채rjestyksess채. K채ytt채j�
 * Itsearviointien lis채채minen (ja muutos)
 * Itsearviointien listaaminen
 * Kysymys-mallivastausparien listaaminen, itsearvioinneilla ja ilman
+* Kuulustelu-looppi
 
 ## Jatkokehitysideoita
 
