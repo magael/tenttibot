@@ -4,9 +4,13 @@ Projekti on web-sovellus, joka toimii opiskelijan apuvälineenä kokeisiin valmi
 
 Sovellus voi auttaa esimerkiksi, kun koealueena on kirja (ei välttämättä valmiilla harjoitustöillä varustettu oppikirja). Opiskelija voi aineiston sisäistämiseksi muodostaa harjoituskysymyksiä ja mallivastauksia omista alleviivauksistaan ja muistiinpanoistaan.
 
-Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäjän syötettyä oma vastauksensa, näytetään mallivastaus. Tämän jälkeen käyttäjä voi arioida osaamistaan vertaamalla sitä mallivastaukseen ja asettamalla vastaukselleen arvosanan. Kuulusteluaineistoa voi rajata itsearvioinnin perusteella.
+Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäjän syötettyä oma vastauksensa, näytetään mallivastaus. Tämän jälkeen käyttäjä voi arvioida osaamistaan vertaamalla sitä mallivastaukseen ja asettamalla vastaukselleen arvosanan. Kuulusteluaineistoa voi rajata itsearvioinnin perusteella.
 
-Linkki herokuun: https://tenttibot.herokuapp.com/
+[!Sovellus Herokussa](https://tenttibot.herokuapp.com/)
+
+[!Käyttäjätarinoita](https://github.com/magael/tenttibot/blob/master/documentation/user_stories.md)
+
+[!Tietokantakaavioluonnos](https://github.com/magael/tenttibot/blob/master/documentation/diagram_sketch.md)
 
 ## Perusversion toiminnallisuus
 
@@ -28,7 +32,7 @@ Linkki herokuun: https://tenttibot.herokuapp.com/
 * Käyttäjällä vähintään 1-moneen-suhde aineiston kanssa (Kirjautumisen lisäksi käyttäjä on yhdistetty tietokannassa johonkin tietokohteeseen)
 * Kysymyksiin ja vastauksiin täysi CRUD (Vähintään kahdesta tietokohteesta täysi CRUD (eli luomis-, lukemis-, päivitys-, ja poistotoiminnallisuus)).
 * Ehkä useamman käyttäjän välillä jaettu aineisto (Yksi tai useampi monesta moneen -suhde).
-* Yhteenvetokyselyjä: Kysymys-mallivastausparit itsearvioinneilla ja ilman, mallivastausten ja käyttökerran vastausten rinnastus, käyttäjäkohtaiset itsearvioinnit päivämäärien mukaan: joka kysymyksen ja koko aineiston arviointien kehityksen seuranta. Hyödynnettäviä tietokantatauluja: Käyttäjä(id, salasana, rekisteröity?), (Aineisto?(id, kysymykset, luotu, muokattu)) Kysymys(kysymys, mallivastaus, vastaus, itsearviointi, luotu, muokattu).
+* Yhteenvetokyselyjä: Kysymys-mallivastausparit itsearvioinneilla ja ilman, mallivastausten ja käyttökerran vastausten rinnastus, käyttäjäkohtaiset itsearvioinnit päivämäärien mukaan: joka kysymyksen ja koko aineiston arviointien kehityksen seuranta.
 * Laadukkaat käyttötapaukset
 
 ## Jatkokehitysideoita
