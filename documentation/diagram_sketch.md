@@ -20,4 +20,5 @@ Material <-- 1 to * --> Question
 | date_created | db.DateTime |
 | date_modified | db.DateTime |
 | name | String |
+| sample_answer | String |
 | mastered (advanced version: grade)| Boolean (adv.: Integer) |
