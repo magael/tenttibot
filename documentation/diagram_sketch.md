@@ -21,4 +21,5 @@ Material <-- 1 to * --> Question
 | date_modified | db.DateTime |
 | name | String |
 | sample_answer | String |
+| current_answer | String |
 | mastered (advanced version: grade)| Boolean (adv.: Integer) |
