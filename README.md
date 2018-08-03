@@ -4,7 +4,7 @@ Projekti on web-sovellus, joka toimii opiskelijan apuvälineenä kokeisiin valmi
 
 Sovellus voi auttaa esimerkiksi, kun koealueena on kirja (ei välttämättä valmiilla harjoitustöillä varustettu oppikirja). Opiskelija voi aineiston sisäistämiseksi muodostaa harjoituskysymyksiä ja mallivastauksia omista alleviivauksistaan ja muistiinpanoistaan.
 
-Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäjän syötettyä oma vastauksensa, näytetään mallivastaus. Tämän jälkeen käyttäjä voi arvioida osaamistaan vertaamalla sitä mallivastaukseen ja asettamalla vastaukselleen arvosanan. Kuulusteluaineistoa voi rajata itsearvioinnin perusteella.
+Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäjän syötettyä oma vastauksensa, näytetään mallivastaus. Tämän jälkeen käyttäjä voi arvioida osaamistaan vertaamalla sitä mallivastaukseen. Kuulusteluaineistoa voi rajata itsearvioinnin perusteella.
 
 [Sovellus Herokussa](https://tenttibot.herokuapp.com/)
 
