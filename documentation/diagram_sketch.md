@@ -5,14 +5,14 @@
 | password | Integer |
 | material | List(Material) |
 
-<- 1 --- * ->
+^-- 1 --- * --v
 
 | Material |  |
 | --- | --- |
 | id (primary key) | Integer |
 | questions | List(Question) |
 
-<- 1 --- * ->
+^-- 1 --- * --v
 
 | Question |  |
 | --- | --- |
