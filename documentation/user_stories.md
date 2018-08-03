@@ -1,6 +1,6 @@
 # User Stories
 
-* As a user I want to register, so that I can access private and permanent data in the database.
+* As a user I want to register an account, so that I can access private and permanent data in the database.
 * As a (registered) user, I want to create new instances of Material, so that I can practice for (multiple) exams.
 * As a user I can add new Questions to a Material and list them, so that I have something to practice.
 * As a user I can rate (list and edit) my level of mastery per Question, so that I can focus on the ones that need more practice.
