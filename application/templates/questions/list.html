@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Question</th>
+      <th>Mastered</th>
+    </tr>
+    {% for question in questions %}
+    <tr>
+      <td>{{ question.name }}</td>
+      <td>{{ question.mastered }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('questions_set_mastered', question_id=question.id) }}">
+          <input type="submit" value="Change status!"/>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

@@ -1,4 +1,4 @@
-# Tietokantasovellus-kurssin harjoitustyö: Aineiston kuulustelija
+# Tietokantasovellus-kurssin harjoitustyö: Aineistonkuulustelija
 
 Projekti on web-sovellus, joka toimii opiskelijan apuvälineenä kokeisiin valmistautumisessa. "Tenttibotti" kuulustelee käyttäjää hänen tietokantaan syöttämänsä aineiston (kysymysten, joille mallivastaukset) perusteella.
 
@@ -20,6 +20,16 @@ Linkki herokuun: https://tenttibot.herokuapp.com/
 * Itsearviointien listaaminen
 * Kysymys-mallivastausparien listaaminen, itsearvioinneilla ja ilman
 * Kuulustelu-looppi
+
+## Korkean kurssiarvosanan laajuuteen tähtäävät ominaisuudet
+
+* Toimiva tietokantaa käyttävä web-sovellus.
+* Käyttäjä, Kysymys +1+ (mallivastaus?) (Vähintään kolme tietokohdetta, eli vähintään 3 tietokantataulua sekä mahdolliset liitostaulut.) 
+* Käyttäjällä vähintään 1-moneen-suhde aineiston kanssa (Kirjautumisen lisäksi käyttäjä on yhdistetty tietokannassa johonkin tietokohteeseen)
+* Kysymyksiin ja vastauksiin täysi CRUD (Vähintään kahdesta tietokohteesta täysi CRUD (eli luomis-, lukemis-, päivitys-, ja poistotoiminnallisuus)).
+* Ehkä useamman käyttäjän välillä jaettu aineisto (Yksi tai useampi monesta moneen -suhde).
+* Yhteenvetokyselyjä: Kysymys-mallivastausparit itsearvioinneilla ja ilman, mallivastausten ja käyttökerran vastausten rinnastus, käyttäjäkohtaiset itsearvioinnit päivämäärien mukaan: joka kysymyksen ja koko aineiston arviointien kehityksen seuranta. Hyödynnettäviä tietokantatauluja: Käyttäjä(id, salasana, rekisteröity?), (Aineisto?(id, kysymykset, luotu, muokattu)) Kysymys(kysymys, mallivastaus, vastaus, itsearviointi, luotu, muokattu).
+* Laadukkaat käyttötapaukset
 
 ## Jatkokehitysideoita
 
