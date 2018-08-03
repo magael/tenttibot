@@ -6,11 +6,11 @@ Sovellus voi auttaa esimerkiksi, kun koealueena on kirja (ei välttämättä val
 
 Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäjän syötettyä oma vastauksensa, näytetään mallivastaus. Tämän jälkeen käyttäjä voi arvioida osaamistaan vertaamalla sitä mallivastaukseen ja asettamalla vastaukselleen arvosanan. Kuulusteluaineistoa voi rajata itsearvioinnin perusteella.
 
-[!Sovellus Herokussa](https://tenttibot.herokuapp.com/)
+[Sovellus Herokussa](https://tenttibot.herokuapp.com/)
 
-[!Käyttäjätarinoita](https://github.com/magael/tenttibot/blob/master/documentation/user_stories.md)
+[Käyttäjätarinoita](https://github.com/magael/tenttibot/blob/master/documentation/user_stories.md)
 
-[!Tietokantakaavioluonnos](https://github.com/magael/tenttibot/blob/master/documentation/diagram_sketch.md)
+[Tietokantakaavioluonnos](https://github.com/magael/tenttibot/blob/master/documentation/diagram_sketch.md)
 
 ## Perusversion toiminnallisuus
 
