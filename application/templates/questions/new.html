@@ -1,8 +1,28 @@
-{% extends "layout.html" %}
-  
-{% block body %}
+{% extends "layout.html" %} {% block body %}
 <form method="POST" action="{{ url_for('questions_create') }}">
-  <input type="text" name="name"/>
-  <input type="submit" value="Add a new question"/>
+  <!-- <input type="text" name="name"/> -->
+  <!-- <input type="submit" value="Add a new question"/> -->
+  <table>
+    <tr>
+      <td>
+        {{ form.name.label }}
+      </td>
+      <td>
+        {{ form.name }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.mastered.label }}
+      </td>
+      <td>
+        {{ form.mastered }}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="Add a new question" />
+      </td>
+    </tr>
 </form>
 {% endblock %}
