@@ -29,7 +29,7 @@ Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäj�
 
 * Toimiva tietokantaa käyttävä web-sovellus.
 * Käyttäjä, Kysymys +1+ (mallivastaus?) (Vähintään kolme tietokohdetta, eli vähintään 3 tietokantataulua sekä mahdolliset liitostaulut.) 
-* Käyttäjällä vähintään 1-moneen-suhde aineiston kanssa (Kirjautumisen lisäksi käyttäjä on yhdistetty tietokannassa johonkin tietokohteeseen)
+* Käyttäjällä vähintään yhdestä moneen -suhde aineiston kanssa (Kirjautumisen lisäksi käyttäjä on yhdistetty tietokannassa johonkin tietokohteeseen)
 * Kysymyksiin ja vastauksiin täysi CRUD (Vähintään kahdesta tietokohteesta täysi CRUD (eli luomis-, lukemis-, päivitys-, ja poistotoiminnallisuus)).
 * Ehkä useamman käyttäjän välillä jaettu aineisto (Yksi tai useampi monesta moneen -suhde).
 * Yhteenvetokyselyjä: Kysymys-mallivastausparit itsearvioinneilla ja ilman, mallivastausten ja käyttökerran vastausten rinnastus, käyttäjäkohtaiset itsearvioinnit päivämäärien mukaan: joka kysymyksen ja koko aineiston arviointien kehityksen seuranta.
