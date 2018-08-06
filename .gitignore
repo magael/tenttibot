@@ -1,7 +1,9 @@
 venv
 
 __pycache__
+__init__.pyc
 application/__pycache__
+application/questions/__init__.pyc
 
 
 questions.db
