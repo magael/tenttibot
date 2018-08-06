@@ -40,6 +40,6 @@ Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäj�
 * Aineistojen jakaminen (ilman itsearviointia) käyttäjien välillä
 * Pelkkien kysymysten jakaminen käyttäjien välillä
 * Julkisten aineistojen kommentointi
-* Mahdollisuus aineistojen tallentamiseen paikallisesti (+ ehkä muokkaus ja lataus takaisin)
+* Mahdollisuus aineistojen tallentamiseen paikallisesti (ehkä myös tulostukseen sopivassa muodossa) (+ ehkä muokkaus ja lataus takaisin)
 * Desktop-sovellus
 * UI usealle kielelle
