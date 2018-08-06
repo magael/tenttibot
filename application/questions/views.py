@@ -15,7 +15,7 @@ def questions_form():
 def questions_set_mastered(question_id):
 
     q = Question.query.get(question_id)
-    q.mastered = True
+    q.mastered = True # can't change back again. better: mastered = !mastered?
     db.session().commit()
   
     return redirect(url_for("questions_index"))
@@ -23,6 +23,9 @@ def questions_set_mastered(question_id):
 @app.route("/questions/", methods=["POST"])
 def questions_create():
     form = QuestionForm(request.form)
+
+    if not form.validate():
+        return render_template("questions/new.html", form = form)
 
     q = Question(form.name.data)
     q.mastered = form.mastered.data

@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField
+from wtforms import BooleanField, StringField, validators
 
 class QuestionForm(FlaskForm):
-    name = StringField("Question")
+    name = StringField("Question", [validators.Length(min=2)])
     mastered = BooleanField("Mastered")
  
     class Meta:
