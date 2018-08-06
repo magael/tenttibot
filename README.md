@@ -15,29 +15,28 @@ Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäj�
 ## Perusversion toiminnallisuus
 
 * Kirjautuminen
-* Aineiston (kysymyslistan) lisääminen (ja muutos)
+* Aineiston lisääminen (ja muutos)
+* Aineistojen jakaminen (ehkä ilman itsearviointia) käyttäjien välillä
 * Kysymysten lisääminen (ja muutos)
 * Kysymysten listaaminen
 * Mallivastausten lisääminen (ja muutos)
 * Mallivastausten listaaminen
 * Itsearviointien lisääminen (ja muutos)
 * Itsearviointien listaaminen
-* Kysymys-mallivastausparien listaaminen, itsearvioinneilla ja ilman
-* Kuulustelu-looppi
+* Kuulustelu-looppi (tms. järjestely, miten kuulustelu tapahtuu yllä kuvatulla tavalla)
 
 ## Korkean kurssiarvosanan laajuuteen tähtäävät ominaisuudet
 
 * Toimiva tietokantaa käyttävä web-sovellus.
-* Käyttäjä, Kysymys +1+ (mallivastaus?) (Vähintään kolme tietokohdetta, eli vähintään 3 tietokantataulua sekä mahdolliset liitostaulut.) 
+* Käyttäjä, Kysymys +1(aineisto?)+ (Vähintään kolme tietokohdetta, eli vähintään 3 tietokantataulua sekä mahdolliset liitostaulut.) 
 * Käyttäjällä vähintään yhdestä moneen -suhde aineiston kanssa (Kirjautumisen lisäksi käyttäjä on yhdistetty tietokannassa johonkin tietokohteeseen)
-* Kysymyksiin +1 (vastauksiin? aineistoon?) täysi CRUD (Vähintään kahdesta tietokohteesta täysi CRUD (eli luomis-, lukemis-, päivitys-, ja poistotoiminnallisuus)).
+* Kysymyksiin +1 (aineistoon?) täysi CRUD (Vähintään kahdesta tietokohteesta täysi CRUD (eli luomis-, lukemis-, päivitys-, ja poistotoiminnallisuus)).
 * Ehkä useamman käyttäjän välillä jaettu aineisto (Yksi tai useampi monesta moneen -suhde).
-* Yhteenvetokyselyjä: Kysymys-mallivastausparit itsearvioinneilla ja ilman, mallivastausten ja käyttökerran vastausten rinnastus, käyttäjäkohtaiset itsearvioinnit päivämäärien mukaan: joka kysymyksen ja koko aineiston arviointien kehityksen seuranta.
+* Yhteenvetokyselyjä: Kysymys-mallivastausparit itsearvioinneilla ja ilman, mallivastausten ja käyttökerran vastausten rinnastus, käyttäjäkohtaiset itsearvioinnit päivämäärien mukaan.
 * Laadukkaat käyttötapaukset
 
 ## Jatkokehitysideoita
 
-* Aineistojen jakaminen (ilman itsearviointia) käyttäjien välillä
 * Pelkkien kysymysten jakaminen käyttäjien välillä
 * Julkisten aineistojen kommentointi
 * Mahdollisuus aineistojen tallentamiseen paikallisesti (ehkä myös tulostukseen sopivassa muodossa) (+ ehkä muokkaus ja lataus takaisin)
