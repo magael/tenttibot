@@ -6,6 +6,8 @@ Sovellus voi auttaa esimerkiksi, kun koealueena on kirja (ei välttämättä val
 
 Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäjän syötettyä oma vastauksensa, näytetään mallivastaus. Tämän jälkeen käyttäjä voi arvioida osaamistaan vertaamalla sitä mallivastaukseen. Kuulusteluaineistoa voi rajata itsearvioinnin perusteella.
 
+Aineistoa voi myös jakaa, esimerkiksi lukupiirin kesken. Myös opettaja voi käyttää sovellusta työkaluna: luoda opiskelijoille tai yhdessä opiskelijoiden kanssa kuulustelumateriaalin, antaa opiskelijoille tehtäväksi luoda omat aineistot (mitkä ehkä palautettaisiin) tai jopa korvata kurssikokeen sovellusta hyödyntäen.
+
 [Sovellus Herokussa](https://tenttibot.herokuapp.com/)
 
 [Käyttäjätarinoita](https://github.com/magael/tenttibot/blob/master/documentation/user_stories.md)
