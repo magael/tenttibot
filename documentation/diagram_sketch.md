@@ -33,5 +33,7 @@ Material 1 to * Question
 | current_answer | String |
 | mastered (advanced version: grade)| Boolean (adv.: Integer) |
 | (fk) material | Material |
-(oisko parempi vaan et "material" -> kyssärin "topic"-attribuutti eikä taulu?)
-(mites "current" vastaus, oma taulu?)
+
+
+* Oisko parempi vaan et "material" -> kyssärin "topic"-attribuutti eikä taulu?
+* Mites "current" vastaus, oma taulu?
