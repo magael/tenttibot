@@ -25,13 +25,14 @@ Password: world
 ## Perusversion toiminnallisuus
 
 * Kirjautuminen
-* Aineiston lisääminen (ja muutos)
-* Aineistojen jakaminen (ehkä ilman itsearviointia) käyttäjien välillä
-* Kysymysten lisääminen (ja muutos)
+* Aineiston lisääminen (ja muutos, poisto)
+* Aineistojen jakaminen (ehkä ilman itsearviointia ja/tai (malli)vastauksia) käyttäjien välillä
+* Aineistojen listaaminen
+* Kysymysten lisääminen (ja muutos, poisto)
 * Kysymysten listaaminen
-* Mallivastausten lisääminen (ja muutos)
+* Mallivastausten lisääminen (ja muutos, poisto)
 * Mallivastausten listaaminen
-* Itsearviointien lisääminen (ja muutos)
+* Itsearviointien lisääminen (ja muutos, poisto)
 * Itsearviointien listaaminen
 * Kuulustelu-looppi (tms. järjestely, miten kuulustelu tapahtuu yllä kuvatulla tavalla)
 
