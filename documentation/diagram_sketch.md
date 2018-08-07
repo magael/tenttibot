@@ -20,6 +20,8 @@ UserMaterial * to 1 Material
 | Material |  |
 | --- | --- |
 | (pk) id | Integer |
+| date_created | DateTime |
+| date_modified | DateTime |
 
 Material 1 to * Question
 
@@ -30,10 +32,11 @@ Material 1 to * Question
 | date_modified | DateTime |
 | name | String |
 | sample_answer | String |
-| current_answer | String |
+| latest_answer | String |
 | mastered (advanced version: grade)| Boolean (adv.: Integer) |
 | (fk) material | Material |
 
-
 * Oisko parempi vaan et "material" -> kyssärin "topic"-attribuutti eikä taulu?
-* Mites "current" vastaus, oma taulu?
+* Mites "latest" vastaus, oma taulu?
+* Entä muut kohdat, joita ei välttämättä haluta jakaa: mallivastaus, itsearvio?
+* "private" aineisto boolean?
