@@ -11,7 +11,7 @@
 User 1 to * UserMaterial 
 
 | UserMaterial |  |
-| --- | --- |
+| --- | --- |
 | (fk) user_id | Integer |
 | (fk) material_id | Integer |
 
