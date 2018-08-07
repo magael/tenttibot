@@ -8,6 +8,13 @@ Tenttaus tapahtuu kysymys kerrallaan, satunnaisessa järjestyksessä. Käyttäj�
 
 Aineistoa voi myös jakaa, esimerkiksi lukupiirin kesken. Myös opettaja voi käyttää sovellusta työkaluna: luoda opiskelijoille tai yhdessä opiskelijoiden kanssa kuulustelumateriaalin, antaa opiskelijoille tehtäväksi luoda omat aineistot (mitkä ehkä palautettaisiin) tai jopa korvata kurssikokeen sovellusta hyödyntäen.
 
+## Testitunnukset:
+
+Username: hello
+Password: world
+
+## Linkkejä
+
 [Sovellus Herokussa](https://tenttibot.herokuapp.com/)
 
 [Käyttäjätarinoita](https://github.com/magael/tenttibot/blob/master/documentation/user_stories.md)

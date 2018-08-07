@@ -1,12 +1,13 @@
 {% extends "layout.html" %} {% block body %}
-<form method="POST" action="{{ url_for('questions_create') }}">
+
+<form method="POST" action="{{ url_for('questions_edit', question_id=question.id) }}">
   <table>
     <tr>
       <td>
         {{ form.name.label }}
       </td>
       <td>
-        {{ form.name }}
+        {{ form.name(value=question.name)}}
       </td>
       <td>
         <ul>
@@ -16,18 +17,22 @@
         </ul>
       </td>
     </tr>
-    <tr>
+    <!-- <tr>
       <td>
         {{ form.mastered.label }}
       </td>
       <td>
         {{ form.mastered }}
       </td>
-    </tr>
+    </tr> -->
     <tr>
       <td colspan="3">
-        <input type="submit" value="Add a new question" />
+        <input type="submit" value="Update question" />
       </td>
     </tr>
+</form>
+
+<form method="POST" action="{{ url_for('questions_delete', question_id=question.id) }}">
+  <input type="submit" value="Delete question"/>
 </form>
 {% endblock %}

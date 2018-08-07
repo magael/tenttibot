@@ -7,15 +7,18 @@
       <th>Mastered</th>
     </tr>
     {% for question in questions %}
+    <!-- {% if question.id %} -->
     <tr>
-      <td>{{ question.name }}</td>
+      <td><a href="{{ url_for('questions_question', question_id=question.id) }}"> {{ question.name }}</a></td>
       <td>{{ question.mastered }}</td>
       <td>
         <form method="POST" action="{{ url_for('questions_set_mastered', question_id=question.id) }}">
-          <input type="submit" value="Change status!"/>
+          <input type="submit" value="Change status"/>
         </form>
       </td>
+      </td>
     </tr>
+    <!-- {% endif %} -->
     {% endfor %}
   </table>
 {% endblock %}

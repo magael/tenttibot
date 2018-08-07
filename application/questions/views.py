@@ -17,11 +17,42 @@ def questions_form():
 @app.route("/questions/<question_id>/", methods=["POST"])
 @login_required
 def questions_set_mastered(question_id):
-
     q = Question.query.get(question_id)
-    q.mastered = True # can't change back again. better: mastered = !mastered?
+    q.mastered = not q.mastered
     db.session().commit()
   
+    return redirect(url_for("questions_index"))
+
+@app.route("/questions/<question_id>/", methods=["GET"])
+@login_required
+def questions_question(question_id):
+    form = QuestionForm(request.form)
+    q = Question.query.get(question_id)
+    return render_template("questions/question.html", form = form, question = q)
+
+@app.route("/questions/<question_id>/edit/", methods=["POST"])
+@login_required
+def questions_edit(question_id):
+    form = QuestionForm(request.form)
+    q = Question.query.get(question_id)
+
+    if not form.validate():
+        return render_template("questions/new.html", form = form)
+
+    q.name = form.name.data
+    q.mastered = form.mastered.data
+
+    db.session().commit()
+  
+    return redirect(url_for("questions_index"))
+
+@app.route("/questions/<question_id>/delete/", methods=["POST"])
+@login_required
+def questions_delete(question_id):
+    q = Question.query.get(question_id)
+    db.session().delete(q)
+    db.session().commit()
+
     return redirect(url_for("questions_index"))
 
 @app.route("/questions/", methods=["POST"])
@@ -39,3 +70,4 @@ def questions_create():
     db.session().commit()
   
     return redirect(url_for("questions_index"))
+    
