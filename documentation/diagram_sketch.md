@@ -8,6 +8,7 @@
 | date_modified | DateTime |
 
 (User * to * Material)
+
 User 1 to * UserMaterial 
 
 | UserMaterial |  |
