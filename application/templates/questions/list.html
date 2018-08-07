@@ -9,11 +9,11 @@
     {% for question in questions %}
     <!-- {% if question.id %} -->
     <tr>
-      <td><a href="{{ url_for('questions_question', question_id=question.id) }}"> {{ question.name }}</a></td>
+      <td>{{ question.name }}</td>
       <td>{{ question.mastered }}</td>
       <td>
-        <form method="POST" action="{{ url_for('questions_set_mastered', question_id=question.id) }}">
-          <input type="submit" value="Change status"/>
+        <form method="GET" action="{{ url_for('questions_question', question_id=question.id) }}">
+          <input type="submit" value="Edit"/>
         </form>
       </td>
       </td>

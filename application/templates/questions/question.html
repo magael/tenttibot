@@ -17,14 +17,14 @@
         </ul>
       </td>
     </tr>
-    <!-- <tr>
+    <tr>
       <td>
         {{ form.mastered.label }}
       </td>
       <td>
-        {{ form.mastered }}
+        {{ form.mastered(checked=question.mastered, class_="form-control") }}
       </td>
-    </tr> -->
+    </tr>
     <tr>
       <td colspan="3">
         <input type="submit" value="Update question" />
