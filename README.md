@@ -38,10 +38,10 @@ Password: world
 ## Korkean kurssiarvosanan laajuuteen tähtäävät ominaisuudet
 
 * Toimiva tietokantaa käyttävä web-sovellus.
-* Käyttäjä, Kysymys +1(aineisto?)+ (Vähintään kolme tietokohdetta, eli vähintään 3 tietokantataulua sekä mahdolliset liitostaulut.) 
-* Käyttäjällä vähintään yhdestä moneen -suhde aineiston kanssa (Kirjautumisen lisäksi käyttäjä on yhdistetty tietokannassa johonkin tietokohteeseen)
-* Kysymyksiin +1 (aineistoon?) täysi CRUD (Vähintään kahdesta tietokohteesta täysi CRUD (eli luomis-, lukemis-, päivitys-, ja poistotoiminnallisuus)).
-* Ehkä useamman käyttäjän välillä jaettu aineisto (Yksi tai useampi monesta moneen -suhde).
+* Tietokohteet: Käyttäjä, Kysymys +1(aineisto?)+ (Väh. 3 tietokantataulua sekä mahdolliset liitostaulut.) 
+* Kirjautumisen lisäksi käyttäjä on yhdistetty tietokannassa aineistoon.
+* Kysymyksiin +1 (aineistoon?) täysi CRUD (Vähintään kahdesta tietokohteesta täysi CRUD).
+* Useamman käyttäjän välillä jaettu aineisto (Yksi tai useampi monesta moneen -suhde).
 * Yhteenvetokyselyjä: Kysymys-mallivastausparit itsearvioinneilla ja ilman, mallivastausten ja käyttökerran vastausten rinnastus, käyttäjäkohtaiset itsearvioinnit päivämäärien mukaan.
 * Laadukkaat käyttötapaukset
 
