@@ -10,7 +10,7 @@
 (User * to * Material)
 User 1 to * UserMaterial 
 
-| UserMaterial | |
+| UserMaterial |  |
 | --- | --- |
 | (fk) user_id | Integer |
 | (fk) material_id | Integer |
