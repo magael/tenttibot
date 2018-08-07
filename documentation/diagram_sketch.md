@@ -34,3 +34,4 @@ Material 1 to * Question
 | mastered (advanced version: grade)| Boolean (adv.: Integer) |
 | (fk) material | Material |
 (oisko parempi vaan et "material" -> kyssärin "topic"-attribuutti eikä taulu?)
+(mites "current" vastaus, oma taulu?)
