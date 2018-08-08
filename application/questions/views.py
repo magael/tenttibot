@@ -65,7 +65,9 @@ def questions_create():
 
     q = Question(form.name.data)
     q.mastered = form.mastered.data
-    q.subject_id = 1
+    # TEMP!
+    q.subject_id = 1 # CHANGE when subject more developed
+    # !
 
     db.session().add(q)
     db.session().commit()

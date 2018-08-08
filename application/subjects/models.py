@@ -1,6 +1,5 @@
 from application import db
 
-
 class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())

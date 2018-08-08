@@ -1,6 +1,13 @@
 from application import db
 
 
+subjects = db.Table('subjects',
+                 db.Column('subject_id', db.Integer, db.ForeignKey(
+                     'subject.id'), primary_key=True),
+                 db.Column('account_id', db.Integer, db.ForeignKey(
+                     'account.id'), primary_key=True))
+
+
 class User(db.Model):
 
     __tablename__ = "account"
@@ -13,6 +20,9 @@ class User(db.Model):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+
+    subjects = db.relationship('Subject', secondary=subjects, lazy='subquery',
+                               backref=db.backref('users', lazy=True))
 
     def __init__(self, name, username, password):
         self.name = name
