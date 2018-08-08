@@ -18,10 +18,10 @@ db = SQLAlchemy(app)
 # functionalities of this app
 from application import views
 
+from application.subjects import models
+
 from application.questions import models
 from application.questions import views
-
-from application.subjects import models
 
 from application.auth import models
 from application.auth import views
