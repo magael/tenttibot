@@ -25,9 +25,9 @@ Password: world
 ## Perusversion toiminnallisuus
 
 * Kirjautuminen
-* Aineiston lisääminen (ja muutos, poisto)
-* Aineistojen jakaminen (ehkä ilman itsearviointia ja/tai (malli)vastauksia) käyttäjien välillä
-* Aineistojen listaaminen
+* Aihealueiden lisääminen (ja muutos, poisto)
+* Aineistojen (Aihealueiden) jakaminen (ehkä ilman itsearviointia ja/tai (malli)vastauksia) käyttäjien välillä
+* Aihealueiden listaaminen
 * Kysymysten lisääminen (ja muutos, poisto)
 * Kysymysten listaaminen
 * Mallivastausten lisääminen (ja muutos, poisto)
@@ -39,10 +39,10 @@ Password: world
 ## Korkean kurssiarvosanan laajuuteen tähtäävät ominaisuudet
 
 * Toimiva tietokantaa käyttävä web-sovellus.
-* Tietokohteet: Käyttäjä, Kysymys +1+ (Väh. 3 tietokantataulua sekä mahdolliset liitostaulut.) 
-* Kirjautumisen lisäksi käyttäjä on yhdistetty tietokannassa aineistoon.
-* Kysymyksiin +1 täysi CRUD.
-* Useamman käyttäjän välillä jaettu aineisto (Yksi tai useampi monesta moneen -suhde).
+* Tietokohteet: Käyttäjä, Aihealueiden, Kysymys (Väh. 3 tietokantataulua sekä mahdolliset liitostaulut.) 
+* Kirjautumisen lisäksi käyttäjä on yhdistetty tietokannassa aineistoon (Aihealueeseen).
+* Kysymyksiin ja Aihealueisiin täysi CRUD.
+* Useamman käyttäjän välillä jaettu aineisto (Aihealue) (Yksi tai useampi monesta moneen -suhde).
 * Yhteenvetokyselyjä: Kysymys-mallivastausparit itsearvioinneilla ja ilman, mallivastausten ja käyttökerran vastausten rinnastus, käyttäjäkohtaiset itsearvioinnit päivämäärien mukaan.
 * Laadukkaat käyttötapaukset
 

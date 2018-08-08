@@ -14,14 +14,14 @@ def questions_index():
 def questions_form():
     return render_template("questions/new.html", form = QuestionForm())
 
-@app.route("/questions/<question_id>/", methods=["POST"])
-@login_required
-def questions_set_mastered(question_id):
-    q = Question.query.get(question_id)
-    q.mastered = not q.mastered
-    db.session().commit()
+# @app.route("/questions/<question_id>/", methods=["POST"])
+# @login_required
+# def questions_set_mastered(question_id):
+#     q = Question.query.get(question_id)
+#     q.mastered = not q.mastered
+#     db.session().commit()
   
-    return redirect(url_for("questions_index"))
+#     return redirect(url_for("questions_index"))
 
 @app.route("/questions/<question_id>/", methods=["GET"])
 @login_required
@@ -65,6 +65,7 @@ def questions_create():
 
     q = Question(form.name.data)
     q.mastered = form.mastered.data
+    q.subject_id = 1
 
     db.session().add(q)
     db.session().commit()

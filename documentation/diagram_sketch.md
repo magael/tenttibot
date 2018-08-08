@@ -7,24 +7,24 @@
 | date_created | DateTime |
 | date_modified | DateTime |
 
-(User * to * Material)
+(User * to * Subject)
 
-User 1 to * UserMaterial 
+User 1 to * UserSubject 
 
-| UserMaterial |  |
+| UserSubject |  |
 | --- | --- |
 | (fk) user_id | Integer |
-| (fk) material_id | Integer |
+| (fk) subject_id | Integer |
 
-UserMaterial * to 1 Material
+UserSubject * to 1 Subject
 
-| Material |  |
+| Subject |  |
 | --- | --- |
 | (pk) id | Integer |
 | date_created | DateTime |
 | date_modified | DateTime |
 
-Material 1 to * Question
+Subject 1 to * Question
 
 | Question |  |
 | --- | --- |
@@ -34,10 +34,9 @@ Material 1 to * Question
 | name | String |
 | sample_answer | String |
 | latest_answer | String |
-| mastered (advanced version: grade)| Boolean (adv.: Integer) |
-| (fk) material | Material |
+| mastered (advanced version: grade / mastery)| Boolean (adv.: Integer) |
+| (fk) subject_id | Subject |
 
-* Oisko parempi vaan et "material" -> kyssärin "topic"-attribuutti eikä taulu?
 * Mites "latest" vastaus, oma taulu?
 * Entä muut kohdat, joita ei välttämättä haluta jakaa: mallivastaus, itsearvio?
 * "private" aineisto boolean?

@@ -1,9 +1,10 @@
 from application import db
 
+
 class User(db.Model):
 
     __tablename__ = "account"
-  
+
     id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
@@ -17,7 +18,7 @@ class User(db.Model):
         self.name = name
         self.username = username
         self.password = password
-  
+
     def get_id(self):
         return self.id
 
