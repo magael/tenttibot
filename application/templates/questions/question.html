@@ -1,5 +1,7 @@
 {% extends "layout.html" %} {% block body %}
-
+<h2>
+  Test subject
+</h2>
 <form method="POST" action="{{ url_for('questions_edit', question_id=question.id) }}">
   <table>
     <tr>
@@ -29,10 +31,13 @@
       <td colspan="3">
         <input type="submit" value="Update question" />
       </td>
+      <td>
+        <a href="{{ url_for('questions_index') }}">Back</a>
+      </td>
     </tr>
 </form>
 
 <form method="POST" action="{{ url_for('questions_delete', question_id=question.id) }}">
-  <input type="submit" value="Delete question"/>
+  <input type="submit" value="Delete question" />
 </form>
 {% endblock %}

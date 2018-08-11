@@ -1,7 +1,22 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block body %} {% if not current_user.is_authenticated %}
+<p>
+  Welcome! Sign in to start using the app.
+</p>
+{% endif %}
+<!--TODO: link to form:"New subject"-->
 
-{% block body %}
-  <p>
-    Test subject
-  </p>
+<table>
+  <tr>
+    <th>
+      Subjects
+    </th>
+  </tr>
+  {% for subject in subjects %}
+  <tr>
+    <td>
+      <a href="{{ url_for('questions_index') }}">{{ subject.name }}</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
 {% endblock %}

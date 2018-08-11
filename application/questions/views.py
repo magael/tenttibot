@@ -5,16 +5,27 @@ from application import app, db
 from application.questions.models import Question
 from application.questions.forms import QuestionForm
 
+# list questions page
 @app.route("/questions", methods=["GET"])
 def questions_index():
     return render_template("questions/list.html", questions = Question.query.all())
 
+# new question creation page
 @app.route("/questions/new/")
 @login_required
 def questions_form():
     return render_template("questions/new.html", form = QuestionForm())
 
-# @app.route("/questions/<question_id>/", methods=["POST"])
+# question editing page
+@app.route("/questions/<question_id>/", methods=["GET"])
+@login_required
+def questions_question(question_id):
+    form = QuestionForm(request.form)
+    q = Question.query.get(question_id)
+    return render_template("questions/question.html", form = form, question = q)
+
+# # updating a question's status
+# @app.route("/questions/<question_id>/", methods=["POST"]) # better route ...id>/mastered ?
 # @login_required
 # def questions_set_mastered(question_id):
 #     q = Question.query.get(question_id)
@@ -23,13 +34,7 @@ def questions_form():
   
 #     return redirect(url_for("questions_index"))
 
-@app.route("/questions/<question_id>/", methods=["GET"])
-@login_required
-def questions_question(question_id):
-    form = QuestionForm(request.form)
-    q = Question.query.get(question_id)
-    return render_template("questions/question.html", form = form, question = q)
-
+# posting data to edit a question
 @app.route("/questions/<question_id>/edit/", methods=["POST"])
 @login_required
 def questions_edit(question_id):
@@ -46,6 +51,7 @@ def questions_edit(question_id):
   
     return redirect(url_for("questions_index"))
 
+# deleting a question
 @app.route("/questions/<question_id>/delete/", methods=["POST"])
 @login_required
 def questions_delete(question_id):
@@ -55,6 +61,7 @@ def questions_delete(question_id):
 
     return redirect(url_for("questions_index"))
 
+# post data to create a new question
 @app.route("/questions/", methods=["POST"])
 @login_required
 def questions_create():

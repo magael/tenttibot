@@ -1,13 +1,8 @@
 from application import db
+from application.models import Base
 
-class Subject(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
-                              onupdate=db.func.current_timestamp())
-
-    name = db.Column(db.String(144), nullable=False)
-
+# extends class Base in (application/models)
+class Subject(Base):
     questions = db.relationship("Question", backref='subject', lazy=True)
 
     def __init__(self, name):

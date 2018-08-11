@@ -1,24 +1,29 @@
-{% extends "layout.html" %}
-
-{% block body %}
-  <table>
-    <tr>
-      <th>Question</th>
-      <th>Mastered</th>
-    </tr>
-    {% for question in questions %}
-    <!-- {% if question.id %} -->
-    <tr>
-      <td>{{ question.name }}</td>
-      <td>{{ question.mastered }}</td>
-      <td>
-        <form method="GET" action="{{ url_for('questions_question', question_id=question.id) }}">
-          <input type="submit" value="Edit"/>
-        </form>
-      </td>
-      </td>
-    </tr>
-    <!-- {% endif %} -->
-    {% endfor %}
-  </table>
+{% extends "layout.html" %} {% block body %}
+<li>
+  <a href="{{ url_for('index') }}">Subjects</a>
+</li>
+<li>
+  <a href="{{ url_for('questions_form') }}">Add a question</a>
+</li>
+<h2>
+  Test subject
+</h2>
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Mastered</th>
+  </tr>
+  {% for question in questions %}<!--REWORK: only list where question.subject_id = subject.id-->
+  <tr>
+    <td>{{ question.name }}</td>
+    <td>{{ question.mastered }}</td>
+    <td>
+      <form method="GET" action="{{ url_for('questions_question', question_id=question.id) }}">
+        <input type="submit" value="Edit" />
+      </form>
+    </td>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
 {% endblock %}
