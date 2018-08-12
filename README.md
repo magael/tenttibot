@@ -57,4 +57,4 @@ Password: world
 * Algoritmi, joka päättää, milloin minkäkin arvosanan saanut kysymys kysytään uudestaan (vaihtoehtona käyttäjän itse rajaamaan aineistoon)
 * Mahdollisuus aineistojen tallentamiseen paikallisesti (ehkä myös tulostukseen sopivassa muodossa) (+ ehkä muokkaus ja lataus takaisin)
 * Desktop-sovellus
-* UI usealle kielelle
+* Käyttöliittymä usealle kielelle

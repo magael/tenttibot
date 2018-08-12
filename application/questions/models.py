@@ -17,7 +17,8 @@ class Question(Base):
 
     @staticmethod
     def find_questions_by_subject(subject_id):
-        # TODO:
+        # BUG: looks like it displays all questions, not only those with the correct subject_id
+        # (same questions displayed when changing the url "...?subject_id=" value "1" to any other number)
         stmt = text("SELECT Question.id, Question.name, Question.mastered FROM Question"
                     " LEFT JOIN Subject on Subject.id = Question.subject_id"
                     " GROUP BY Question.id")
