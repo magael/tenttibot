@@ -1,6 +1,11 @@
-
-{% block body %}
+{% extends "layout.html" %} {% block body %}
+<li>
+  <a href="{{ url_for('index') }}">Subjects</a>
+</li>
 {{ error }}
+<h2>
+  Sign in
+</h2>
 <form method="POST" action="{{ url_for('auth_login') }}">
   <table>
     <tr>

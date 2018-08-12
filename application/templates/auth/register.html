@@ -1,4 +1,7 @@
 {% extends "layout.html" %} {% block body %}
+<li>
+    <a href="{{ url_for('index') }}">Subjects</a>
+</li>
 <h2>
     Register
 </h2>
@@ -53,7 +56,6 @@
             <td colspan="3">
                 <input type="submit" value="Create user" />
             </td>
-            <!--TODO: back-link-->
         </tr>
     </table>
 </form>
