@@ -6,6 +6,7 @@
   <a href="{{ url_for('questions_form') }}">Add a question</a>
 </li>
 <h2>
+  <!--TODO: diplay actual current subject-->
   Test subject
 </h2>
 <table>
@@ -13,10 +14,11 @@
     <th>Question</th>
     <th>Mastered</th>
   </tr>
-  {% for question in questions %}<!--REWORK: only list where question.subject_id = subject.id-->
+  {% if questions is defined %} {% for question in questions %}
   <tr>
     <td>{{ question.name }}</td>
-    <td>{{ question.mastered }}</td>
+    <!-- the comparator "== 1" is there so that we display text rather than a numeric binary value -->
+    <td>{{ question.mastered == 1 }}</td>
     <td>
       <form method="GET" action="{{ url_for('questions_question', question_id=question.id) }}">
         <input type="submit" value="Edit" />
@@ -24,6 +26,6 @@
     </td>
     </td>
   </tr>
-  {% endfor %}
+  {% endfor %} {% endif %}
 </table>
 {% endblock %}

@@ -1,5 +1,6 @@
 {% extends "layout.html" %} {% block body %}
 <h2>
+  <!--TODO: diplay actual current subject-->
   Test subject
 </h2>
 <form method="POST" action="{{ url_for('questions_create') }}">
@@ -31,9 +32,7 @@
       <td colspan="3">
         <input type="submit" value="Add a new question" />
       </td>
-      <td>
-        <a href="{{ url_for('questions_index') }}">Back</a>
-      </td>
+      <!--TODO: back-link-->
     </tr>
 </form>
 {% endblock %}

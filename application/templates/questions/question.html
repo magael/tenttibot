@@ -1,5 +1,6 @@
 {% extends "layout.html" %} {% block body %}
 <h2>
+  <!--TODO: diplay actual current subject-->
   Test subject
 </h2>
 <form method="POST" action="{{ url_for('questions_edit', question_id=question.id) }}">
@@ -32,7 +33,7 @@
         <input type="submit" value="Update question" />
       </td>
       <td>
-        <a href="{{ url_for('questions_index') }}">Back</a>
+        <a href="{{ url_for('questions_index', subject_id=question.subject_id) }}">Back</a>
       </td>
     </tr>
 </form>

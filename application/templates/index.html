@@ -14,7 +14,7 @@
   {% for subject in subjects %}
   <tr>
     <td>
-      <a href="{{ url_for('questions_index') }}">{{ subject.name }}</a>
+      <a href="{{ url_for('questions_index', subject_id=subject.id) }}">{{ subject.name }}</a>
     </td>
   </tr>
   {% endfor %}
