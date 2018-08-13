@@ -23,7 +23,7 @@ Password: world
 
 ## Perusversion toiminnallisuus
 
-* Kirjautuminen
+* Rekisteröityminen ja kirjautuminen
 * Aihealueiden lisääminen (ja muutos, poisto)
 * Aineistojen (Aihealueiden) jakaminen (ehkä ilman itsearviointia ja/tai (malli)vastauksia) käyttäjien välillä
   * Tai aihealueiden "tägäys", selailu tagien perusteella
@@ -56,5 +56,5 @@ Password: world
 * Julkisten aineistojen kommentointi
 * Algoritmi, joka päättää, milloin minkäkin arvosanan saanut kysymys kysytään uudestaan (vaihtoehtona käyttäjän itse rajaamaan aineistoon)
 * Mahdollisuus aineistojen tallentamiseen paikallisesti (ehkä myös tulostukseen sopivassa muodossa) (+ ehkä muokkaus ja lataus takaisin)
-* Desktop-sovellus
+* Työpöytäsovellus
 * Käyttöliittymä usealle kielelle

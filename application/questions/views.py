@@ -9,12 +9,8 @@ from application.questions.forms import QuestionForm
 @app.route("/questions", methods=["GET"])
 def questions_index():
     """Page for isting questions."""
-    # BUG: looks like it displays all questions, not only those with the correct subject_id
-    # (same questions displayed when changing the url "...?subject_id=" value "1" to any other number)
-    # TODO: try questions = Question.query.filter_by(...
     s = request.args.get('subject_id')
-    return render_template("questions/list.html", questions=Question.find_questions_by_subject(s))
-    # return render_template("questions/list.html", questions=Question.query.all())
+    return render_template("questions/list.html", questions=Question.query.filter_by(subject_id=s))
 
 
 @app.route("/questions/new/")
