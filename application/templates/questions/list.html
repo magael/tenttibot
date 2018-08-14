@@ -1,10 +1,5 @@
 {% extends "layout.html" %} {% block body %}
-<li>
-  <a href="{{ url_for('index') }}">Subjects</a>
-</li>
-<li>
-  <a href="{{ url_for('questions_form', subject_id=subject_id) }}">Add a question</a>
-</li>
+<a href="{{ url_for('questions_form', subject_id=subject_id) }}">Add a question</a>
 <h2>
   {{ subject_name }}
 </h2>
