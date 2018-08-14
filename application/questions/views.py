@@ -6,88 +6,72 @@ from application.questions.models import Question
 from application.questions.forms import QuestionForm
 
 
-@app.route("/questions", methods=["GET"])
-def questions_index():
-    """Page for isting questions."""
-    s = request.args.get('subject_id')
-    return render_template("questions/list.html", questions=Question.query.filter_by(subject_id=s))
+# TODO: change all "questions" routes to "<subject_id>"
+
+@app.route("/<subject_id>", methods=["GET"])
+def questions_index(subject_id):
+    """Page for listing questions."""
+    return render_template("questions/list.html", questions=Question.query.filter_by(subject_id=subject_id), subject_id=subject_id)
 
 
-@app.route("/questions/new/")
+@app.route("/<subject_id>/new/")
 @login_required
-def questions_form():
+def questions_form(subject_id):
     """Page for creating a new question"""
-    return render_template("questions/new.html", form=QuestionForm())
+    return render_template("questions/new.html", form=QuestionForm(), subject_id=subject_id)
 
 
-@app.route("/questions/<question_id>/", methods=["GET"])
+@app.route("/<subject_id>/<question_id>/", methods=["GET"])
 @login_required
-def questions_question(question_id):
+def questions_question(subject_id, question_id):
     """Page for question editing"""
     form = QuestionForm(request.form)
     q = Question.query.get(question_id)
     return render_template("questions/question.html", form=form, question=q)
 
-# # updating a question's status
-# @app.route("/questions/<question_id>/", methods=["POST"]) # IDEA: better route ...id>/mastered ?
-# @login_required
-# def questions_set_mastered(question_id):
-#     q = Question.query.get(question_id)
-#     q.mastered = not q.mastered
-#     db.session().commit()
-
-#     return redirect(url_for("questions_index"))
-
-
-@app.route("/questions/<question_id>/edit/", methods=["POST"])
+@app.route("/<subject_id>/<question_id>/edit/", methods=["POST"])
 @login_required
-def questions_edit(question_id):
+def questions_edit(subject_id, question_id):
     """Posting data to edit a question"""
     form = QuestionForm(request.form)
     q = Question.query.get(question_id)
 
     if not form.validate():
-        return render_template("questions/new.html", form=form)
+        return redirect(url_for("questions_index", subject_id=subject_id))
 
     q.name = form.name.data
     q.mastered = form.mastered.data
 
-    s = q.subject_id
-
     db.session().commit()
 
-    return redirect(url_for("questions_index", subject_id=s))
+    return redirect(url_for("questions_index", subject_id=subject_id))
 
 
-@app.route("/questions/<question_id>/delete/", methods=["POST"])
+@app.route("/<subject_id>/<question_id>/delete/", methods=["POST"])
 @login_required
-def questions_delete(question_id):
+def questions_delete(subject_id, question_id):
     """Deleting a question"""
     q = Question.query.get(question_id)
-    s = q.subject_id
     db.session().delete(q)
     db.session().commit()
 
-    return redirect(url_for("questions_index", subject_id=s))
+    return redirect(url_for("questions_index", subject_id=subject_id))
 
 
-@app.route("/questions/", methods=["POST"])
+@app.route("/<subject_id>/", methods=["POST"])
 @login_required
-def questions_create():
+def questions_create(subject_id):
     """Post data to create a new question"""
     form = QuestionForm(request.form)
 
     if not form.validate():
-        return render_template("questions/new.html", form=form)
+        return render_template("questions/new.html", form=form, subject_id=subject_id)
 
     q = Question(form.name.data)
     q.mastered = form.mastered.data
-    # HACK
-    q.subject_id = 1  # TODO: get actual current subject id when subject more developed
-
-    s = q.subject_id
+    q.subject_id = subject_id
 
     db.session().add(q)
     db.session().commit()
 
-    return redirect(url_for("questions_index", subject_id=s))
+    return redirect(url_for("questions_index", subject_id=subject_id))

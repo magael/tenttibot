@@ -3,10 +3,10 @@
   <a href="{{ url_for('index') }}">Subjects</a>
 </li>
 <li>
-  <a href="{{ url_for('questions_form') }}">Add a question</a>
+  <a href="{{ url_for('questions_form', subject_id=subject_id) }}">Add a question</a>
 </li>
 <h2>
-  <!--TODO: diplay actual current subject-->
+  <!--TODO: diplay actual current subject name-->
   Test subject
 </h2>
 <table>
@@ -17,10 +17,9 @@
   {% if questions is defined %} {% for question in questions %}
   <tr>
     <td>{{ question.name }}</td>
-    <!-- the comparator "== 1" is there so that we display text rather than a numeric binary value -->
     <td>{{ question.mastered == 1 }}</td>
     <td>
-      <form method="GET" action="{{ url_for('questions_question', question_id=question.id) }}">
+      <form method="GET" action="{{ url_for('questions_question', subject_id=question.subject_id, question_id=question.id) }}">
         <input type="submit" value="Edit" />
       </form>
     </td>

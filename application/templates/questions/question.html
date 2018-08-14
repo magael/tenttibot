@@ -1,9 +1,9 @@
 {% extends "layout.html" %} {% block body %}
 <h2>
-  <!--TODO: diplay actual current subject-->
+  <!--TODO: diplay actual current subject name-->
   Test subject
 </h2>
-<form method="POST" action="{{ url_for('questions_edit', question_id=question.id) }}">
+<form method="POST" action="{{ url_for('questions_edit', subject_id=question.subject.id, question_id=question.id) }}">
   <table>
     <tr>
       <td>
@@ -38,7 +38,7 @@
     </tr>
 </form>
 
-<form method="POST" action="{{ url_for('questions_delete', question_id=question.id) }}">
+<form method="POST" action="{{ url_for('questions_delete', subject_id=question.subject_id, question_id=question.id) }}">
   <input type="submit" value="Delete question" />
 </form>
 {% endblock %}
