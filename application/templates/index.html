@@ -9,13 +9,19 @@
     <th>
       Subjects
     </th>
+    <th>
+      Questions
+    </th>
   </tr>
-  {% for subject in subjects %}
+  {% if subjects is defined %} {% for subject in subjects %}
   <tr>
     <td>
       <a href="{{ url_for('questions_index', subject_id=subject.id) }}">{{ subject.name }}</a>
     </td>
+    <td>
+      {{subject.questions}}
+    </td>
   </tr>
-  {% endfor %}
+  {% endfor %} {% endif %}
 </table>
 {% endblock %}

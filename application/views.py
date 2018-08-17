@@ -4,4 +4,4 @@ from application.subjects.models import Subject
 
 @app.route("/")
 def index():
-    return render_template("index.html", subjects = Subject.query.all())
+    return render_template("index.html", subjects = Subject.subjects_with_question_counts())
