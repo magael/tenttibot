@@ -2,26 +2,25 @@
 <p>
   Welcome! Sign in to start using the app.
 </p>
+{% else %}
+<p>
+  <a class="btn btn-primary" href="{{ url_for('subjects_form') }}" role="button">
+    Create a new subject
+  </a>
+</p>
 {% endif %}
-<a href="{{ url_for('subjects_form') }}">Create a new subject</a>
-<table>
-  <tr>
-    <th>
-      Subjects
-    </th>
-    <th>
-      Questions
-    </th>
-  </tr>
-  {% if subjects is defined %} {% for subject in subjects %}
-  <tr>
-    <td>
-      <a href="{{ url_for('questions_index', subject_id=subject.id) }}">{{ subject.name }}</a>
-    </td>
-    <td>
+
+<h2>Subjects</h2>
+
+{% if subjects is defined %} {% for subject in subjects %}
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <a href="{{ url_for('questions_index', subject_id=subject.id) }}">
+      {{ subject.name }}
+    </a>
+    <a href="{{ url_for('questions_index', subject_id=subject.id) }}" class="badge badge-info">
       {{subject.questions}}
-    </td>
-  </tr>
-  {% endfor %} {% endif %}
-</table>
-{% endblock %}
+    </a>
+  </li>
+</ul>
+{% endfor %} {% endif %} {% endblock %}

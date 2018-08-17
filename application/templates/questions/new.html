@@ -32,7 +32,9 @@
         <input type="submit" value="Add a new question" />
       </td>
       <td>
-        <a href="{{ url_for('questions_index', subject_id=subject_id) }}">Back</a>
+        <a class="btn btn-outline-dark" href="{{ url_for('questions_index', subject_id=subject_id) }}" role="button">
+          Back
+        </a>
       </td>
     </tr>
   </table>

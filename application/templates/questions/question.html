@@ -32,7 +32,9 @@
         <input type="submit" value="Update question" />
       </td>
       <td>
-        <a href="{{ url_for('questions_index', subject_id=question.subject_id) }}">Back</a>
+        <a class="btn btn-outline-dark" href="{{ url_for('questions_index', subject_id=question.subject_id) }}" role="button">
+          Back
+        </a>
       </td>
     </tr>
 </form>
