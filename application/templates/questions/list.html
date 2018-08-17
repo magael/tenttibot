@@ -6,12 +6,12 @@
 <table>
   <tr>
     <th>Question</th>
-    <th>Mastered</th>
+    <th>Mastery</th>
   </tr>
   {% if questions is defined %} {% for question in questions %}
   <tr>
     <td>{{ question.name }}</td>
-    <td>{{ question.mastered == 1 }}</td>
+    <td>{{ question.mastered * 1 }}</td>
     <td>
       <form method="GET" action="{{ url_for('questions_question', subject_id=question.subject_id, question_id=question.id) }}">
         <input type="submit" value="Edit" />

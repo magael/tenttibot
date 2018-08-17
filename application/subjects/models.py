@@ -20,7 +20,7 @@ class Subject(Base):
         # TODO: Order by which subject is related to the last modified question
         stmt = text("SELECT s.id, s.name, COUNT(q.id) FROM Subject s"
                     " LEFT JOIN Question q ON q.subject_id = s.id"
-                    " GROUP BY s.id ORDER BY COUNT(s.date_created) DESC")
+                    " GROUP BY s.id ORDER BY s.date_created DESC")
         res = db.engine.execute(stmt)
 
         response = []

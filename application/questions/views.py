@@ -11,7 +11,7 @@ from application.questions.forms import QuestionForm
 def questions_index(subject_id):
     """Page for listing questions."""
     s = Subject.query.get(subject_id)
-    # TODO: check if questions=Question.query.filter_by(subject_id=subject_id) is ok or should it be written out in SQL?
+    # TODO: write out the query in SQL into a function where questions are listed ordered by q.date_created
     return render_template("questions/list.html", questions=Question.query.filter_by(subject_id=subject_id), subject_id=subject_id, subject_name=s.name)
 
 
@@ -40,7 +40,7 @@ def questions_edit(subject_id, question_id):
     q = Question.query.get(question_id)
 
     if not form.validate():
-        return redirect(url_for("questions_index", subject_id=subject_id))
+        return redirect(url_for("questions_question", subject_id=subject_id, question_id=question_id))
 
     q.name = form.name.data
     q.mastered = form.mastered.data
