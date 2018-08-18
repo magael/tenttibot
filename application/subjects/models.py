@@ -17,7 +17,7 @@ class Subject(Base):
         """Subjects with the same name are listed separately."""
         """Ordered by most recent subject."""
         # IDEA: Add avg mastery of questions in each subject when mastery gets developed to non-binary
-        # TODO: Order by which subject is related to the last modified question
+        # TODO: Order the results by q.date_modified DESC
         stmt = text("SELECT s.id, s.name, COUNT(q.id) FROM Subject s"
                     " LEFT JOIN Question q ON q.subject_id = s.id"
                     " GROUP BY s.id ORDER BY s.date_created DESC")

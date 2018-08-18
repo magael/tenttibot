@@ -10,7 +10,7 @@
   </tr>
   {% if questions is defined %} {% for question in questions %}
   <tr>
-    <td>{{ question.name }}</td>
+    <td>{{ question.name }}</td> <!--TODO: restrict text into a box (more narrow than 144 characters)-->
     <td>{{ question.mastered * 1 }}</td>
     <td>
       <form method="GET" action="{{ url_for('questions_question', subject_id=question.subject_id, question_id=question.id) }}">

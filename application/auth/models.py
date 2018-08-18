@@ -20,6 +20,8 @@ class User(Base):
     subjects = db.relationship('Subject', secondary=user_subjects, lazy='subquery',
                                backref=db.backref('users', lazy=True))
 
+    # TODO: add roles
+
     def __init__(self, name, username, password):
         self.name = name
         self.username = username
