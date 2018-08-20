@@ -1,9 +1,25 @@
-# User Stories
+#Käyttäjätarinat
 
-* As a user I want to register an account, so that I can access private and permanent data in the database.
-* As a (registered) user, I want to create new instances of Material, so that I can practice for (multiple) exams.
-* As a user I can add new Questions to a Material and list them, so that I have something to practice.
-* As a user I can rate (list and edit) my level of mastery per Question, so that I can focus on the ones that need more practice.
-* As user I want to add new Sample Answers, so that I can keep a check on my progress and improve.
-* As a user I want to hide and reveal Sample Answers, so that I have to and can (roughly) memorize them.
-* As a user I want to edit and remove Questions and Sample Answers, so that I can keep my material up to date.
+* Kirjautumattomana käyttäjänä näen alueiden listauksessa (etusivulla) kaikki aineistot, jotta voin valita tarkasteltavaksi minua kiinnostavan aihealueen.
+* Kirjautumattomana käyttäjänä näen alueiden sisällön, jotta voin arvioida sen (ja sovelluksen ylipäätään) hyödyllisyyttä itselleni.
+* Kirjautumattomana pystyn rekisteröitymään, jotta minulla on käytettävissäni omat käyttäjätunnukset.
+* Kirjautumattomana käyttäjänä pystyn kirjautumaan sisään, jotta pääsen käyttämään kirjautumattomilta käyttäjiltä estettyjä toimintoja, mikäli minulla on tiedossani käyttäjätunnus ja salasana.
+
+
+* Kirjautuneena käyttäjänä pystyn luomaan uusia aineistoja / aihealueita (Subject (TODO: nimenmuutos: Deck)), jotta minulla on otsikko, jonka alle jäsennellä kuulustelumateriaalia.
+* Kirjautuneena käyttäjänä voin muokata (TODO: autorisointi: itse luomieni tai muuten hallitsemani) aineistojen otsikoita (ja muita attribuutteja), jotta minun ei tarvitse nähdä valtavasti vaivaa uuden aineiston luomiseen, mikäli haluan muuttaa ainestoni nimeä.
+* TODO: Kirjautuneena käyttäjänä voin poistaa (aineistokohtaisten oikeuksieni salliessa) aineistoja, jotta voin pitää sovelluksen ja sen sisäiset omat näkymäni siistinä turhasta informaatiosta, ja esimerkiksi päästä eroon materiaalista, mihin en halua kenenkään pääsevän käsiksi.
+
+* Kirjautuneena käyttäjänä pystyn lisätä uusia kysymyksiä / kuulustelukortteja aineistoihin (Question (TODO: nimenmuutos: Card)), jotta minulla on materiaalia, mitä kuulustella.
+* Kirjautuneena käyttäjänä pystyn muokkaamaan (TODO: autorisointi) korttien tekstiä (esim. kysymystä), jotta voin esimerkiksi korjata kirjoitusvirheitä, tai lisätä siihen informaatiota.
+* Kirjautuneena käyttäjänä pystyn muokkaamaan (TODO: autorisointi) korttien oppimisen itsearviota, jotta voin seurata edistymistäni, ja rajata kuulusteluaineistoa, keskittyen enimmäkseen vähemmän hallitsemaani materiaaliin.
+* Kirjautuneena käyttäjänä pystyn poistamaan (TODO: autorisointi) kortteja,mikäli esimerkiksi olen lisännyt vahingossa kaksi hyvin samanlaista korttia, tai haluan nopeasti ja radikaalisti muokata aineistoa.
+
+* Kirjautuneena käyttäjänä pystyn kirjautumaan ulos, jotta sisäänkirjautumiseni ei jää päälle, eikä esimerkiksi toinen saman koneen käyttäjä pääse käyttämään tunnuksiani luvatta.
+
+
+TODO:
+* Järjestelmänvalvojana...
+
+
+TODO: Mallivastausten CRUD, aineiston kuulustelu (kuulusteluaineisto, yksittäisten korttien kuulustelu random järjestyksessä, mallivastausten piilottaminen ja näyttäminen...)
