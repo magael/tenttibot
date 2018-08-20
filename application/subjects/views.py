@@ -25,11 +25,9 @@ def subjects_create():
 
     s = Subject(form.name.data)
 
+    current_user.subjects.append(s)
+    
     db.session.add(s)
     db.session.commit()
-    
-    # I hope using the "engine.execute()" is fine since it's not inserting any user input.
-    db.engine.execute(user_subjects.insert(), account_id=current_user.id, subject_id=s.id)
-    db.session.commit() # seems to work without this as well
 
     return redirect(url_for("index"))
