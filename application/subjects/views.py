@@ -1,7 +1,8 @@
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from application import app, db
+from application.auth.models import user_subjects
 from application.subjects.models import Subject
 from application.subjects.forms import SubjectForm
 
@@ -26,5 +27,9 @@ def subjects_create():
 
     db.session.add(s)
     db.session.commit()
+    
+    # I hope using the "engine.execute()" is fine since it's not inserting any user input.
+    db.engine.execute(user_subjects.insert(), account_id=current_user.id, subject_id=s.id)
+    db.session.commit() # seems to work without this as well
 
     return redirect(url_for("index"))

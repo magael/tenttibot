@@ -8,7 +8,10 @@ from sqlalchemy.sql import text
 class Subject(Base):
     """extends class Base (in application/models)"""
     questions = db.relationship("Question", backref='subject', lazy=True)
-
+    # Sketching how to possibly switch from many-to-many to one-to-many relationship:
+    # account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
+    #                        nullable=False)
+    
     def __init__(self, name):
         self.name = name
 

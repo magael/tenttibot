@@ -8,7 +8,8 @@ class LoginForm(FlaskForm):
         validators.Regexp('^\w+$',
                           message="Username must contain only letters, numbers or underscore")
     ])
-    password = PasswordField("Password", [validators.Length(min=8)])
+    # password = PasswordField("Password", [validators.Length(min=8)])
+    password = PasswordField("Password")
 
     class Meta:
         csrf = False
