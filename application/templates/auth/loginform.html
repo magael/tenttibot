@@ -2,10 +2,9 @@
 <h2>
   Please sign in
 </h2>
-<p>Don't have an account yet?
-  <a href="{{ url_for('auth_register') }}">
-    Sign up
-  </a>
+<p>
+  Don't have an account yet?
+  <a href="{{ url_for('auth_register') }}">Sign up</a>
   now for free!
 </p>
 <form method="POST" action="{{ url_for('auth_login') }}">

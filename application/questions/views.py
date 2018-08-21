@@ -1,7 +1,7 @@
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required
+from flask_login import login_required, current_user
 
-from application import app, db
+from application import app, db, login_manager
 from application.subjects.models import Subject
 from application.questions.models import Question
 from application.questions.forms import QuestionForm
@@ -36,6 +36,10 @@ def questions_question(subject_id, question_id):
 @login_required
 def questions_edit(subject_id, question_id):
     """Posting data to edit a question"""
+    if not is_creator(subject_id) and not current_user.admin:
+        print("--------------------------------------", current_user.admin, "-----------------------")
+        return login_manager.unauthorized()
+
     form = QuestionForm(request.form)
     q = Question.query.get(question_id)
 
@@ -54,6 +58,9 @@ def questions_edit(subject_id, question_id):
 @login_required
 def questions_delete(subject_id, question_id):
     """Deleting a question"""
+    if not is_creator(subject_id) and not current_user.admin:
+        return login_manager.unauthorized()
+
     q = Question.query.get(question_id)
     db.session().delete(q)
     db.session().commit()
@@ -65,6 +72,9 @@ def questions_delete(subject_id, question_id):
 @login_required
 def questions_create(subject_id):
     """Post data to create a new question"""
+    if not is_creator(subject_id) and not current_user.admin:
+        return login_manager.unauthorized()
+
     form = QuestionForm(request.form)
 
     if not form.validate():
@@ -78,3 +88,12 @@ def questions_create(subject_id):
     db.session().commit()
 
     return redirect(url_for("questions_index", subject_id=subject_id))
+
+def is_creator(subject_id):
+    """Prevent users from adding to, editing or deleting material created by another user:"""
+    s = Subject.query.get(subject_id)
+    if s in current_user.subjects:
+        # TODO: display custom error message (visibly: "only the creator can edit" or something)
+        # IDEA: customize login_required to redirect to the page that was attemted to access, if login succesful. see flask-login.readthedocs.io/en/latest/ "Customizing the Login Process"
+        return True
+    return False

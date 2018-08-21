@@ -1,5 +1,10 @@
 {% extends "layout.html" %} {% block body %}
-<a class="btn btn-outline-primary" href="{{ url_for('questions_form', subject_id=subject_id) }}" role="button">Add a question</a>
+<!--TODO: hide add and edit buttons if not auth (logged in as the subject creator)-->
+<p>
+  <a class="btn btn-outline-primary" href="{{ url_for('questions_form', subject_id=subject_id) }}" role="button">
+    Add a question
+  </a>
+</p>
 <h2>
   {{ subject_name }}
 </h2>
@@ -10,7 +15,8 @@
   </tr>
   {% if questions is defined %} {% for question in questions %}
   <tr>
-    <td>{{ question.name }}</td> <!--TODO: restrict text into a box (narrower than 144 characters)-->
+    <!--TODO: restrict text into a box (narrower than 144 characters)-->
+    <td>{{ question.name }}</td>
     <td>{{ question.mastered * 1 }}</td>
     <td>
       <form method="GET" action="{{ url_for('questions_question', subject_id=question.subject_id, question_id=question.id) }}">
