@@ -29,24 +29,30 @@ def auth_logout():
 
 @app.route("/auth/register", methods=["GET", "POST"])
 def auth_register():
+    #TODO: chop into smaller functions
     if request.method == "GET":
         return render_template("auth/register.html", form=RegistrationForm())
 
     form = RegistrationForm(request.form)
 
+    # check username availability
     taken = User.query.filter_by(username=form.username.data)
     if taken.first():
         taken_error = ("Sorry, the username has already been taken!")
     else:
         taken_error = False
 
+    # validation
     if not form.validate() or taken_error:
         return render_template("auth/register.html", form = form, taken=taken_error)
 
     u = User(form.name.data, form.username.data, form.password.data)
 
-    # TODO: if the role "ANY" exists, append that rather than creating a new role
-    r = Role("ANY")
+    # set default role
+    r = Role.query.filter_by(name="ANY")
+    r = r.first()
+    if not r:
+        r = Role("ANY")
     u.auth_roles.append(r)
 
     db.session().add(u)
@@ -58,4 +64,6 @@ def auth_register():
 @login_required(role="ADMIN")
 def users_index():
     #BUG: Heroku gives always 500: Internal server error (works locally)
+    #TODO: ability to promote a user to admin
+    #IDEA: ability to delete a user
     return render_template("auth/list.html", accounts = User.users_and_roles())

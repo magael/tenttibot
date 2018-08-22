@@ -9,7 +9,11 @@
   </a>
 </p>
 
-<!--TODO: hide link/button if not admin-->
+<!--
+  TODO: hide link/button if not admin 
+  (something like (wave-percent) if current_user.get_role() != ['ADMIN'] (percent-wave) )
+  or pass as params from root views.py
+-->
 <p>
   <a href="{{ url_for ('users_index') }}">Users</a>
 </p>

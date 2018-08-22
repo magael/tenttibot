@@ -2,6 +2,7 @@ from flask import redirect, render_template, request, url_for
 from flask_login import current_user
 
 from application import app, db, login_manager, login_required
+from application.auth.models import User
 from application.subjects.models import Subject
 from application.questions.models import Question
 from application.questions.forms import QuestionForm
@@ -11,8 +12,11 @@ from application.questions.forms import QuestionForm
 def questions_index(subject_id):
     """Page for listing questions."""
     s = Subject.query.get(subject_id)
-    # TODO: write out the query in SQL into a function where questions are listed ordered by q.date_created
-    return render_template("questions/list.html", questions=Question.query.filter_by(subject_id=subject_id), subject_id=subject_id, subject_name=s.name)
+    # IDEA: write out the query in SQL into a function where questions are listed ordered by q.date_created
+    q = Question.query.filter_by(subject_id=subject_id)
+    # TODO: really think about this many-to-many user_subjects... the following would not work correctly with many users per subject
+    a = User.find_author(subject_id)
+    return render_template("questions/list.html", questions=q, subject_id=subject_id, subject_name=s.name, author=a.first())
 
 
 @app.route("/<subject_id>/new/", methods=["GET"])

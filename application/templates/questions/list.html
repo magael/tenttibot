@@ -1,13 +1,16 @@
-{% extends "layout.html" %} {% block body %}
-<!--TODO: hide add and edit buttons if not auth (logged in as the subject creator)-->
+{% extends "layout.html" %} {% block body %} {% if current_user.id == author.id %}
 <p>
   <a class="btn btn-outline-primary" href="{{ url_for('questions_form', subject_id=subject_id) }}" role="button">
     Add a question
   </a>
 </p>
+{% endif %}
 <h2>
   {{ subject_name }}
 </h2>
+<p>
+  By {{ author.username }}
+</p>
 <table>
   <tr>
     <th>Question</th>
@@ -18,12 +21,13 @@
     <!--TODO: restrict text into a box (narrower than 144 characters)-->
     <td>{{ question.name }}</td>
     <td>{{ question.mastered * 1 }}</td>
+    {% if current_user.id == author.id %}
     <td>
       <form method="GET" action="{{ url_for('questions_question', subject_id=question.subject_id, question_id=question.id) }}">
         <input type="submit" value="Edit" />
       </form>
     </td>
-    </td>
+    {% endif %}
   </tr>
   {% endfor %} {% endif %}
 </table>

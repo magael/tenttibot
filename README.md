@@ -22,6 +22,8 @@ Password: admin123
 
 [Sovellus Herokussa](https://tenttibot.herokuapp.com/)
 
+[Käyttöohje ja asennus](https://github.com/magael/tenttibot/blob/master/documentation/ohje.md)
+
 [Käyttäjätarinoita](https://github.com/magael/tenttibot/blob/master/documentation/user_stories.md)
 
 [Tietokantakaavioluonnos](https://github.com/magael/tenttibot/blob/master/documentation/diagram_sketch.md)

@@ -64,6 +64,15 @@ class User(Base):
 
         return response
 
+    @staticmethod
+    def find_author(subject_id):
+        stmt = text("SELECT * FROM account a"
+        " LEFT JOIN user_subjects us"
+        " WHERE us.subject_id = :subject_id"
+        " AND a.id = us.account_id;").params(subject_id=subject_id)
+        res = db.engine.execute(stmt)
+
+        return res
 
 class Role(Base):
     """extends class Base (in application/models)"""
