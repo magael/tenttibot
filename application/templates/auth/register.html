@@ -35,6 +35,9 @@
                     {% for error in form.username.errors %}
                     <li>{{ error }}</li>
                     {% endfor %}
+                    {% if taken %}
+                    <li>{{ taken }}</li>
+                    {% endif %}
                 </ul>
             </td>
         </tr>

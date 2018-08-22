@@ -34,10 +34,14 @@ def auth_register():
 
     form = RegistrationForm(request.form)
 
-    # TODO: if username taken
+    taken = User.query.filter_by(username=form.username.data)
+    if taken.first():
+        taken_error = ("Sorry, the username has already been taken!")
+    else:
+        taken_error = False
 
-    if not form.validate():
-        return render_template("auth/register.html", form = form)
+    if not form.validate() or taken_error:
+        return render_template("auth/register.html", form = form, taken=taken_error)
 
     u = User(form.name.data, form.username.data, form.password.data)
 
@@ -53,4 +57,5 @@ def auth_register():
 @app.route("/auth/accounts", methods=["GET"])
 @login_required(role="ADMIN")
 def users_index():
+    #BUG: Heroku gives always 500: Internal server error (works locally)
     return render_template("auth/list.html", accounts = User.users_and_roles())

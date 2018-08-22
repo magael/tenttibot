@@ -32,6 +32,7 @@ def questions_question(subject_id, question_id):
     s = Subject.query.get(subject_id)
     return render_template("questions/question.html", form=form, question=q, subject_name=s.name)
 
+
 @app.route("/<subject_id>/<question_id>/edit/", methods=["POST"])
 @login_required()
 def questions_edit(subject_id, question_id):
@@ -88,11 +89,10 @@ def questions_create(subject_id):
 
     return redirect(url_for("questions_index", subject_id=subject_id))
 
+
 def is_creator(subject_id):
     """Prevent users from adding to, editing or deleting material created by another user:"""
     s = Subject.query.get(subject_id)
     if s in current_user.subjects:
-        # TODO: display custom error message (visibly: "only the creator can edit" or something)
-        # IDEA: customize login_required to redirect to the page that was attemted to access when login succesful. see flask-login.readthedocs.io/en/latest/ "Customizing the Login Process"
         return True
     return False
