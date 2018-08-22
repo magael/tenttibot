@@ -15,7 +15,7 @@ def questions_index(subject_id):
     return render_template("questions/list.html", questions=Question.query.filter_by(subject_id=subject_id), subject_id=subject_id, subject_name=s.name)
 
 
-@app.route("/<subject_id>/new/")
+@app.route("/<subject_id>/new/", methods=["GET"])
 @login_required()
 def questions_form(subject_id):
     """Page for creating a new question"""

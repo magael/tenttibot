@@ -22,7 +22,7 @@ def auth_login():
     login_user(user)
     return redirect(url_for("index"))
 
-@app.route("/auth/logout")
+@app.route("/auth/logout", methods=["GET"])
 def auth_logout():
     logout_user()
     return redirect(url_for("index")) 
@@ -50,7 +50,7 @@ def auth_register():
 
     return redirect(url_for("auth_login"))
 
-@app.route("/auth/accounts")
+@app.route("/auth/accounts", methods=["GET"])
 @login_required(role="ADMIN")
 def users_index():
     return render_template("auth/list.html", accounts = User.users_and_roles())
