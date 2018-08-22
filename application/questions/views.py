@@ -45,11 +45,12 @@ def questions_edit(subject_id, question_id):
         return login_manager.unauthorized()
 
     form = QuestionForm(request.form)
+    q = Question.query.get(question_id)
+    s = Subject.query.get(subject_id)
 
     if not form.validate():
-        return redirect(url_for("questions_question", subject_id=subject_id, question_id=question_id))
+        return render_template("questions/question.html", form=form, question=q, subject_name=s.name)
 
-    q = Question.query.get(question_id)
     q.name = form.name.data
     q.mastered = form.mastered.data
 

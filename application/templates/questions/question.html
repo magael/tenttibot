@@ -13,8 +13,6 @@
       </td>
       <td>
         <ul>
-          <!--BUG: showing errors not working.
-            I guess redirecting to the form with the content from before submission erases them-->
           {% for error in form.name.errors %}
           <li>{{ error }}</li>
           {% endfor %}
