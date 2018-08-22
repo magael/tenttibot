@@ -5,10 +5,10 @@
         <th>Username</th>
         <th>Role</th>
     </tr>
-    {% if users is defined %} {% for user in users %}
+    {% if accounts is defined %} {% for a in accounts %}
     <tr>
-        <td>{{ user.username }}</td>
-        <td>{{ user.role }}</td>
+        <td>{{ a.username }}</td>
+        <td>{{ a.role }}</td>
     </tr>
     {% endfor %} {% endif %}
 </table>

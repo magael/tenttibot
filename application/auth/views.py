@@ -53,4 +53,4 @@ def auth_register():
 @app.route("/auth/accounts")
 @login_required(role="ADMIN")
 def users_index():
-    return render_template("auth/list.html", users = User.users_and_roles())
+    return render_template("auth/list.html", accounts = User.users_and_roles())
