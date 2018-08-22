@@ -50,7 +50,7 @@ def auth_register():
 
     return redirect(url_for("auth_login"))
 
-@app.route("/auth/users")
+@app.route("/auth/accounts")
 @login_required(role="ADMIN")
 def users_index():
     return render_template("auth/list.html", users = User.users_and_roles())
