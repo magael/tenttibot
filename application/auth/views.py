@@ -1,8 +1,8 @@
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
 
-from application import app, db
-from application.auth.models import User
+from application import app, db, login_required
+from application.auth.models import User, Role
 from application.auth.forms import LoginForm, RegistrationForm
 
 
@@ -41,7 +41,16 @@ def auth_register():
 
     u = User(form.name.data, form.username.data, form.password.data)
 
+    # TODO: if the role "ANY" exists, append that rather than creating a new role
+    r = Role("ANY")
+    u.auth_roles.append(r)
+
     db.session().add(u)
     db.session().commit()
 
     return redirect(url_for("auth_login"))
+
+@app.route("/auth/users")
+@login_required(role="ADMIN")
+def users_index():
+    return render_template("auth/list.html", users = User.users_and_roles())

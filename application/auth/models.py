@@ -4,12 +4,17 @@ from application.models import Base
 from sqlalchemy.sql import text
 
 
-# junction table "UserSubjects"
 user_subjects = db.Table('user_subjects',
                          db.Column('account_id', db.Integer, db.ForeignKey(
                              'account.id'), primary_key=True),
                          db.Column('subject_id', db.Integer, db.ForeignKey(
                              'subject.id'), primary_key=True))
+
+user_roles = db.Table('user_roles',
+                      db.Column('account_id', db.Integer, db.ForeignKey(
+                          'account.id'), primary_key=True),
+                      db.Column('role_id', db.Integer, db.ForeignKey(
+                          'role.id'), primary_key=True))
 
 
 class User(Base):
@@ -18,19 +23,16 @@ class User(Base):
 
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
-    admin = db.Column(db.Boolean, nullable=False)
 
     subjects = db.relationship('Subject', secondary=user_subjects, lazy='subquery',
                                backref=db.backref('users', lazy=True))
-
-    # Sketching how to possibly switch from many-to-many to one-to-many relationship:
-    # subjects = db.relationship('Subject', backref='user_subjects', lazy=True)
+    auth_roles = db.relationship('Role', secondary=user_roles, lazy='subquery',
+                                 backref=db.backref('users', lazy=True))
 
     def __init__(self, name, username, password):
         self.name = name
         self.username = username
         self.password = password
-        self.admin = False
 
     def get_id(self):
         return self.id
@@ -45,6 +47,26 @@ class User(Base):
         return True
 
     def roles(self):
-        if self.admin:
-            return ["ADMIN"]
-        return ["ANY"]
+        return self.auth_roles
+
+    @staticmethod
+    def users_and_roles():
+        stmt = text("SELECT a.id, a.username, r.name FROM account a"
+                    " LEFT JOIN Role r ON a.id IN (SELECT account_id FROM user_roles ur"
+                    " WHERE ur.account_id = a.id AND ur.role_id = r.id)"
+                    " GROUP BY a.id;")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append(
+                {"user_id": row[0], "username": row[1], "role": row[2]})
+
+        return response
+
+
+class Role(Base):
+    """extends class Base (in application/models)"""
+
+    def __init__(self, name):
+        self.name = name

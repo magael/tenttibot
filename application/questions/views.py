@@ -1,7 +1,7 @@
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required, current_user
+from flask_login import current_user
 
-from application import app, db, login_manager
+from application import app, db, login_manager, login_required
 from application.subjects.models import Subject
 from application.questions.models import Question
 from application.questions.forms import QuestionForm
@@ -16,7 +16,7 @@ def questions_index(subject_id):
 
 
 @app.route("/<subject_id>/new/")
-@login_required
+@login_required()
 def questions_form(subject_id):
     """Page for creating a new question"""
     s = Subject.query.get(subject_id)
@@ -24,7 +24,7 @@ def questions_form(subject_id):
 
 
 @app.route("/<subject_id>/<question_id>/", methods=["GET"])
-@login_required
+@login_required()
 def questions_question(subject_id, question_id):
     """Page for question editing"""
     form = QuestionForm(request.form)
@@ -33,19 +33,18 @@ def questions_question(subject_id, question_id):
     return render_template("questions/question.html", form=form, question=q, subject_name=s.name)
 
 @app.route("/<subject_id>/<question_id>/edit/", methods=["POST"])
-@login_required
+@login_required()
 def questions_edit(subject_id, question_id):
     """Posting data to edit a question"""
-    if not is_creator(subject_id) and not current_user.admin:
-        print("--------------------------------------", current_user.admin, "-----------------------")
+    if not is_creator(subject_id):
         return login_manager.unauthorized()
 
     form = QuestionForm(request.form)
-    q = Question.query.get(question_id)
 
     if not form.validate():
         return redirect(url_for("questions_question", subject_id=subject_id, question_id=question_id))
 
+    q = Question.query.get(question_id)
     q.name = form.name.data
     q.mastered = form.mastered.data
 
@@ -55,10 +54,10 @@ def questions_edit(subject_id, question_id):
 
 
 @app.route("/<subject_id>/<question_id>/delete/", methods=["POST"])
-@login_required
+@login_required()
 def questions_delete(subject_id, question_id):
     """Deleting a question"""
-    if not is_creator(subject_id) and not current_user.admin:
+    if not is_creator(subject_id):
         return login_manager.unauthorized()
 
     q = Question.query.get(question_id)
@@ -69,10 +68,10 @@ def questions_delete(subject_id, question_id):
 
 
 @app.route("/<subject_id>/", methods=["POST"])
-@login_required
+@login_required()
 def questions_create(subject_id):
     """Post data to create a new question"""
-    if not is_creator(subject_id) and not current_user.admin:
+    if not is_creator(subject_id):
         return login_manager.unauthorized()
 
     form = QuestionForm(request.form)
@@ -94,6 +93,6 @@ def is_creator(subject_id):
     s = Subject.query.get(subject_id)
     if s in current_user.subjects:
         # TODO: display custom error message (visibly: "only the creator can edit" or something)
-        # IDEA: customize login_required to redirect to the page that was attemted to access, if login succesful. see flask-login.readthedocs.io/en/latest/ "Customizing the Login Process"
+        # IDEA: customize login_required to redirect to the page that was attemted to access when login succesful. see flask-login.readthedocs.io/en/latest/ "Customizing the Login Process"
         return True
     return False
