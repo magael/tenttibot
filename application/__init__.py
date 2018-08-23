@@ -11,7 +11,6 @@ import os
 if os.environ.get("HEROKU"):
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 else:
-    # TODO: change db name at some point
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///questions.db"
     app.config["SQLALCHEMY_ECHO"] = True
 

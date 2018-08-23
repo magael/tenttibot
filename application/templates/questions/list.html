@@ -20,8 +20,8 @@
   <tr>
     <!--TODO: restrict text into a box (narrower than 144 characters)-->
     <td>{{ question.name }}</td>
-    <td>{{ question.mastered * 1 }}</td>
     {% if current_user.id == author.id %}
+    <td>{{ question.mastered * 1 }}</td>
     <td>
       <form method="GET" action="{{ url_for('questions_question', subject_id=question.subject_id, question_id=question.id) }}">
         <input type="submit" value="Edit" />
