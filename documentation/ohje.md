@@ -14,8 +14,7 @@ Voit rekisteröityä yläpalkin oikean laidan tai kirjautumislomakkeen linkistä
 
 Kirjauduttuasi sisään voit luoda uusia aihealueita etusivun ylälaitaan ilmestyneestä painikkeesta.
 
-Aihealueen sisällä voit luoda uusia kysymyksiä ylälaidan painikkeesta. Näet kysymysten tekstin oikealla puolella luvun, joka kertoo, kuinka hyvin koet tällä hetkellä hallitsevasi kysymyksen vastauksen.<\br>
-Voit päivittää kysymysten tekstiä ja itsearviointia, sekä poistaa kysymyksiä kunkin kysymyksen oikealla puolella sijaitsevasta painikkeesta.
+Aihealueen sisällä voit luoda uusia kysymyksiä ylälaidan painikkeesta. Näet kysymysten tekstin oikealla puolella luvun, joka kertoo, kuinka hyvin koet tällä hetkellä hallitsevasi kysymyksen vastauksen. Voit päivittää kysymysten tekstiä ja itsearviointia, sekä poistaa kysymyksiä kunkin kysymyksen oikealla puolella sijaitsevasta painikkeesta.
 
 Järjestelmänvalvojana kirjautuneena voit käyttää etusivulla sijaitsevaa linkkiä, josta pääset listaamaan kaikki käyttäjätunnukset ja niihin liittyvät käyttäjäroolit.
 

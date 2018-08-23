@@ -15,11 +15,13 @@ class Subject(Base):
     def __init__(self, name):
         self.name = name
 
+
+    # TODO: list separately "My subjects" and 10 most recent "Other user's subjects"
     @staticmethod
     def subjects_with_question_counts():
         """Subjects with the same name are listed separately."""
         """Ordered by most recent subject."""
-        # IDEA: Add avg mastery of questions in each subject when mastery gets developed to non-binary
+        # IDEA: Add avg mastery of questions in each subject
         # IDEA: Order the results by q.date_modified DESC
         stmt = text("SELECT s.id, s.name, COUNT(q.id) FROM Subject s"
                     " LEFT JOIN Question q ON q.subject_id = s.id"

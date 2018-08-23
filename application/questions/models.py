@@ -6,11 +6,14 @@ from sqlalchemy.sql import text
 
 class Question(Base):
     """extends class Base (in application/models)"""
-    mastered = db.Column(db.Boolean, nullable=False)
+    # TODO: answer
+    answer = db.Column(db.String(144), nullable=False)
+    mastery= db.Column(db.Integer, nullable=False)
 
     subject_id = db.Column(db.Integer, db.ForeignKey('subject.id'),
                            nullable=False)
 
-    def __init__(self, name):
+    def __init__(self, name, answer, mastery):
         self.name = name
-        self.mastered = False
+        self.answer = answer
+        self.mastery = mastery

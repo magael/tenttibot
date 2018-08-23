@@ -14,7 +14,6 @@ def questions_index(subject_id):
     s = Subject.query.get(subject_id)
     # IDEA: write out the query in SQL into a function where questions are listed ordered by q.date_created
     q = Question.query.filter_by(subject_id=subject_id)
-    # TODO: really think about this many-to-many user_subjects... the following would not work correctly with many users per subject
     a = User.find_author(subject_id)
     return render_template("questions/list.html", questions=q, subject_id=subject_id, subject_name=s.name, author=a.first())
 
@@ -52,7 +51,8 @@ def questions_edit(subject_id, question_id):
         return render_template("questions/question.html", form=form, question=q, subject_name=s.name)
 
     q.name = form.name.data
-    q.mastered = form.mastered.data
+    q.answer = form.answer.data
+    q.mastery = form.mastery.data
 
     db.session().commit()
 
@@ -85,8 +85,7 @@ def questions_create(subject_id):
     if not form.validate():
         return render_template("questions/new.html", form=form, subject_id=subject_id)
 
-    q = Question(form.name.data)
-    q.mastered = form.mastered.data
+    q = Question(form.name.data, form.answer.data, form.mastery.data)
     q.subject_id = subject_id
 
     db.session().add(q)
