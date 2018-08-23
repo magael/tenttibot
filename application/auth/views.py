@@ -63,7 +63,6 @@ def auth_register():
 @app.route("/auth/accounts", methods=["GET"])
 @login_required(role="ADMIN")
 def users_index():
-    #BUG: Heroku gives always 500: Internal server error (works locally)
     #TODO: ability to promote a user to admin
     #IDEA: ability to delete a user
     return render_template("auth/list.html", accounts = User.users_and_roles())
