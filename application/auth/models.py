@@ -71,8 +71,8 @@ class User(Base):
         # Or add date_created & -modified to user_subjects and order this query by us.date_created
         stmt = text("SELECT * FROM account a"
         " LEFT JOIN user_subjects us"
-        " WHERE us.subject_id = :subject_id"
-        " AND a.id = us.account_id;").params(subject_id=subject_id)
+        " ON us.subject_id = :subject_id"
+        " WHERE a.id = us.account_id;").params(subject_id=subject_id)
         res = db.engine.execute(stmt)
 
         return res
