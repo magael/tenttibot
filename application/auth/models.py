@@ -54,7 +54,7 @@ class User(Base):
         stmt = text("SELECT a.id, a.username, r.name FROM account a"
                     " LEFT JOIN Role r ON a.id IN (SELECT account_id FROM user_roles ur"
                     " WHERE ur.account_id = a.id AND ur.role_id = r.id)"
-                    " GROUP BY a.id ORDER BY r.name, a.username;")
+                    " GROUP BY a.id, r.name ORDER BY r.name, a.username;")
         res = db.engine.execute(stmt)
 
         response = []
