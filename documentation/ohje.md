@@ -49,9 +49,11 @@ python run.py
 
 sqlite3 application/questions.db
 
-3. Lisätäksesi admin-roolin "admin"-nimiselle käyttäjälle syötä seuraava SQL-komento:
+3. Lisätäksesi admin-roolin "admin"-nimiselle käyttäjälle syötä seuraavat kaksi SQL-komentoa:
 
-UPDATE Role SET name = 'ADMIN' WHERE Role.id IN (SELECT id FROM account WHERE account.name = 'admin');
+INSERT INTO Role (name) VALUES ('ADMIN');
+
+UPDATE user_roles SET role_id = (SELECT id FROM Role r WHERE r.name = 'ADMIN') WHERE account_id IN (SELECT id FROM account WHERE account.username = 'admin');
 
 4. Nyt admin-rooli on lisätty valitsemallesi käyttäjälle. Voit varmistaa asian esimerkiksi listaamalla kaikkien käyttäjien roolit kyselyllä
 
