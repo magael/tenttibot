@@ -1,1 +1,37 @@
-<!--TODO: Editing and deleting a subject-->
+{% extends "layout.html" %} {% block body %}
+<h2>
+  {{ subject_name }}
+</h2>
+<form method="POST" action="{{ url_for('subjects_edit', subject_id=subject.id) }}">
+  <table>
+    <tr>
+      <td>
+        {{ form.name.label }}
+      </td>
+      <td>
+        {{ form.name(value=subject.name)}}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.name.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <input type="submit" value="Update subject" />
+      </td>
+      <td>
+        <a class="btn btn-outline-dark" href="{{ url_for('questions_index', subject_id=subject_id) }}" role="button">
+          Back
+        </a>
+      </td>
+    </tr>
+</form>
+
+<form method="POST" action="{{ url_for('subjects_delete', subject_id=subject.id) }}">
+  <input type="submit" value="Delete subject" />
+</form>
+{% endblock %}
