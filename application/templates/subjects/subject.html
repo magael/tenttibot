@@ -1,12 +1,12 @@
 {% extends "layout.html" %} {% block body %}
 <h2>
-  {{ subject_name }}
+  {{ subject.name }}
 </h2>
 <form method="POST" action="{{ url_for('subjects_edit', subject_id=subject.id) }}">
   <table>
     <tr>
       <td>
-        {{ form.name.label }}
+        Name
       </td>
       <td>
         {{ form.name(value=subject.name)}}
@@ -24,7 +24,7 @@
         <input type="submit" value="Update subject" />
       </td>
       <td>
-        <a class="btn btn-outline-dark" href="{{ url_for('questions_index', subject_id=subject_id) }}" role="button">
+        <a class="btn btn-outline-dark" href="{{ url_for('questions_index', subject_id=subject.id) }}" role="button">
           Back
         </a>
       </td>
