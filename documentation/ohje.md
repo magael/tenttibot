@@ -18,7 +18,14 @@ Aihealueen sisällä voit luoda uusia kysymyksiä ylälaidan painikkeesta. Näet
 
 Järjestelmänvalvojana kirjautuneena voit käyttää etusivulla sijaitsevaa linkkiä, josta pääset listaamaan kaikki käyttäjätunnukset ja niihin liittyvät käyttäjäroolit.
 
-## Sovelluksen käyttö paikallisesti:
+## Sovelluksen käyttö paikallisesti
+
+## Vaatimukset:
+
+Tarvitset tuen Python-kielisten ohjelmien suorittamiseen: vähintään Pythonin version 3.5 (https://www.python.org/downloads/).
+
+Samalla sinun tulee ladattua kirjastojen lataamiseen tarvittava pip, sekä "virtuaaliympäristöjen" luomiseen tarvittava venv-kirjasto.
+
 
 ### Asennus ja käynnistys:
 
@@ -26,20 +33,29 @@ Järjestelmänvalvojana kirjautuneena voit käyttää etusivulla sijaitsevaa lin
 
 2. Navigoi projektin juureen komentokehotteella ja asenna virtuaaliympäristö komennolla
 
+```
 python3 -m venv venv
+```
 
 3. Aktivoi virtuaaliympäristö:
 
+```
 source venv/bin/activate
+```
 
 4. Lataa projektin riippuvuudet:
 
+```
 "pip install -r requirements.txt"
+```
 
 5. Käynnistä sovellus:
 
+```
 python run.py
+```
 
+6. Sovellusta voi nyt käyttää osoitteessa http://localhost:5000/ tai http://127.0.0.1:5000/.
 
 ### Alkuperäisen admin-roolin lisääminen:
 
@@ -47,16 +63,25 @@ python run.py
 
 2. Syötä komentokehotteesa, sovelluksen juuressa komento:
 
+```
 sqlite3 application/questions.db
+```
 
 3. Lisätäksesi admin-roolin "admin"-nimiselle käyttäjälle syötä seuraavat kaksi SQL-komentoa:
 
+```
 INSERT INTO Role (name) VALUES ('ADMIN');
 
-UPDATE user_roles SET role_id = (SELECT id FROM Role r WHERE r.name = 'ADMIN') WHERE account_id IN (SELECT id FROM account WHERE account.username = 'admin');
+UPDATE user_roles SET role_id = (SELECT id FROM Role r WHERE r.name = 'ADMIN')
+ WHERE account_id IN (SELECT id FROM account WHERE account.username = 'admin');
+```
 
 4. Nyt admin-rooli on lisätty valitsemallesi käyttäjälle. Voit varmistaa asian esimerkiksi listaamalla kaikkien käyttäjien roolit kyselyllä
 
-SELECT a.username, r.name FROM account a LEFT JOIN Role r ON a.id IN (SELECT account_id FROM user_roles ur WHERE ur.account_id = a.id AND ur.role_id = r.id) GROUP BY r.name, a.username;
+```
+SELECT a.username, r.name FROM account a
+ LEFT JOIN Role r ON a.id IN (SELECT account_id FROM user_roles ur WHERE ur.account_id = a.id AND ur.role_id = r.id)
+  GROUP BY r.name, a.username;
+```
 
 tai admin-tunnuksilla kirjautuneena linkistä "Users".

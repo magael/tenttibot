@@ -6,7 +6,6 @@ from sqlalchemy.sql import text
 
 class Question(Base):
     """extends class Base (in application/models)"""
-    # TODO: answer
     answer = db.Column(db.String(144), nullable=False)
     mastery= db.Column(db.Integer, nullable=False)
 

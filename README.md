@@ -10,12 +10,12 @@ Aineistoa voi myös jakaa, esimerkiksi lukupiirin kesken. Myös opettaja voi kä
 
 ## Testitunnukset:
 
-Tavallinen käyttäjä:</br>
-Username: hw</br>
+Tavallinen käyttäjä:<br>
+Username: hw<br>
 Password: hello123
 
-Admin:</br>
-Username: admin</br>
+Admin:<br>
+Username: admin<br>
 Password: admin123
 
 ## Linkkejä
