@@ -28,15 +28,15 @@
   <tr>
     <!--TODO: vertically rather than horizontally expanding text areas-->
     <td>{{ question.name }}</td>
-    {% if current_user.id == author.id or admin %}
+    {% if current_user.id == author.id %}
     <td>{{ question.mastery }}</td>
-    {% if admin %}
+    {% endif %} {% if current_user.id == author.id or admin %}
     <td>
       <form method="GET" action="{{ url_for('questions_question', subject_id=question.subject_id, question_id=question.id) }}">
         <input type="submit" value="Edit" />
       </form>
     </td>
-    {% endif %} {% endif %}
+    {% endif %}
   </tr>
   {% endfor %} {% endif %}
 </table>
