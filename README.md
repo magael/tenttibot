@@ -26,7 +26,7 @@ Password: admin123
 
 [Käyttäjätarinoita](https://github.com/magael/tenttibot/blob/master/documentation/user_stories.md)
 
-[Tietokantakaavioluonnos](https://github.com/magael/tenttibot/blob/master/documentation/diagram.png)
+[Tietokantakaavio](https://github.com/magael/tenttibot/blob/master/documentation/diagram.png)
 
 ## Perusversion toiminnallisuus
 
