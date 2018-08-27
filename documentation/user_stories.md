@@ -26,8 +26,4 @@
 
 ### Järjestelmänvalvoja
 
-* Järjestelmänvalvojana pystyn listaamaan kaikki käyttäjät ja heidän käyttäjäroolinsa, jotta pysyn kartalla käyttäjien määrästä, ylläpitäjien määrästä, sekä siitä, kenellä on järjestelmänvalvojan oikeudet.
-* TODO: käyttäjien poisto
-* TODO: käyttäjien roolien muokkaus
-* TODO: Aiheiden muokkaus ja poisto
-* TODO: Kysymysten muokkaus ja poisto
+* Järjestelmänvalvojana (kirjautuneena) pystyn listaamaan kaikki käyttäjät ja heidän käyttäjäroolinsa, jotta pysyn kartalla käyttäjien määrästä, ylläpitäjien määrästä, sekä siitä, kenellä on järjestelmänvalvojan oikeudet.

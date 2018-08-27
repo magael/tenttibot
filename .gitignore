@@ -6,6 +6,7 @@ application/__pycache__
 application/views.pyc
 application/questions/__init__.pyc
 
+documentation/diagram.md
 
 questions.db
 
