@@ -2,6 +2,7 @@ from flask import redirect, render_template, request, url_for
 from flask_login import login_required, current_user
 
 from application import app, db, login_manager, login_required
+from application.views import current_user_is_admin
 from application.auth.models import user_subjects
 from application.subjects.forms import SubjectForm
 from application.subjects.models import Subject
@@ -46,7 +47,7 @@ def subjects_subject(subject_id):
 @login_required()
 def subjects_edit(subject_id):
     """Posting data to edit a subject"""
-    if not is_creator(subject_id):
+    if not is_creator(subject_id) and not current_user_is_admin():
         return login_manager.unauthorized()
 
     form = SubjectForm(request.form)
@@ -65,7 +66,7 @@ def subjects_edit(subject_id):
 @login_required()
 def subjects_delete(subject_id):
     """Deleting a subject and all it's questions"""
-    if not is_creator(subject_id):
+    if not is_creator(subject_id) and not current_user_is_admin():
         return login_manager.unauthorized()
 
     s = Subject.query.get(subject_id)

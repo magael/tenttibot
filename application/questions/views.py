@@ -2,6 +2,7 @@ from flask import redirect, render_template, request, url_for
 from flask_login import current_user
 
 from application import app, db, login_manager, login_required
+from application.views import current_user_is_admin
 from application.auth.models import User
 from application.subjects.models import Subject
 from application.questions.models import Question
@@ -15,7 +16,8 @@ def questions_index(subject_id):
     # IDEA: write out the query in SQL into a function where questions are listed ordered by q.date_created
     q = Question.query.filter_by(subject_id=subject_id)
     a = User.find_author(subject_id)
-    return render_template("questions/list.html", questions=q, subject_id=subject_id, subject_name=s.name, author=a.first())
+    admin = current_user_is_admin()
+    return render_template("questions/list.html", questions=q, subject_id=subject_id, subject_name=s.name, author=a.first(), admin=admin)
 
 
 @app.route("/<subject_id>/new/", methods=["GET"])
@@ -40,7 +42,7 @@ def questions_question(subject_id, question_id):
 @login_required()
 def questions_edit(subject_id, question_id):
     """Posting data to edit a question"""
-    if not is_creator(subject_id):
+    if not is_creator(subject_id) and not current_user_is_admin():
         return login_manager.unauthorized()
 
     form = QuestionForm(request.form)
@@ -63,7 +65,7 @@ def questions_edit(subject_id, question_id):
 @login_required()
 def questions_delete(subject_id, question_id):
     """Deleting a question"""
-    if not is_creator(subject_id):
+    if not is_creator(subject_id) and not current_user_is_admin():
         return login_manager.unauthorized()
 
     q = Question.query.get(question_id)
