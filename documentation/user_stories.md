@@ -26,4 +26,10 @@
 
 ### Järjestelmänvalvoja
 
-* Järjestelmänvalvojana (kirjautuneena) pystyn listaamaan kaikki käyttäjät ja heidän käyttäjäroolinsa, jotta pysyn kartalla käyttäjien määrästä, ylläpitäjien määrästä, sekä siitä, kenellä on järjestelmänvalvojan oikeudet.
+* Järjestelmänvalvojana (kirjautuneena) voin muokata muiden käyttäjien aihealueita, jotta voin lisätä varoitustekstin joillekin sopimattomasta sisällöstä.
+* Järjestelmänvalvojana voin poistaa muiden käyttäjien aihealueita, yrittääkseni hallita asiattomien tai liian pitkään tyhjininä seisseiden aihealueiden kertymistä sovellukseen.
+* Järjestelmänvalojana voin muokata muiden käyttäjien kysymyskortteja, jotta voin esimerkiksi sensuroida asiatonta sisältöä, ja jättää kommentin "(Asiaton sisältö sensuroitu. -admin)".
+* Järjestelmänvalvojana voin poistaa muiden käyttäjien kortteja, sensuroidakseni asiatonta sisältöä nopeasti ja radikaalisti.
+<br>
+<br>
+* Järjestelmänvalvojana pystyn listaamaan kaikki käyttäjät ja heidän käyttäjäroolinsa, jotta pysyn kartalla käyttäjien määrästä, ylläpitäjien määrästä, sekä siitä, kenellä on järjestelmänvalvojan oikeudet.
