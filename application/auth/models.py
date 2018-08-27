@@ -52,7 +52,8 @@ class User(Base):
     @staticmethod
     def users_and_roles():
         stmt = text("SELECT a.id, a.username, r.name FROM account a"
-                    " LEFT JOIN Role r ON a.id IN (SELECT account_id FROM user_roles ur"
+                    " LEFT JOIN Role r"
+                    " ON a.id IN (SELECT account_id FROM user_roles ur"
                     " WHERE ur.account_id = a.id AND ur.role_id = r.id)"
                     " GROUP BY a.id, r.name ORDER BY r.name, a.username;")
         res = db.engine.execute(stmt)
@@ -70,12 +71,13 @@ class User(Base):
         # Consider switching user_subjects to many-to-one
         # Or add date_created & -modified to user_subjects and order this query by us.date_created
         stmt = text("SELECT * FROM account a"
-        " LEFT JOIN user_subjects us"
-        " ON us.subject_id = :subject_id"
-        " WHERE a.id = us.account_id;").params(subject_id=subject_id)
+                    " LEFT JOIN user_subjects us"
+                    " ON us.subject_id = :subject_id"
+                    " WHERE a.id = us.account_id;").params(subject_id=subject_id)
         res = db.engine.execute(stmt)
 
         return res
+
 
 class Role(Base):
     """extends class Base (in application/models)"""

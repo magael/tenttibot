@@ -9,15 +9,11 @@
   </a>
 </p>
 
-<!--
-  TODO: hide link/button if not admin 
-  (something like (wave-percent) if current_user.get_role() != ['ADMIN'] (percent-wave) )
-  or pass as params from root views.py
--->
+{% if admin %}
 <p>
   <a class="btn btn-outline-dark" href="{{ url_for ('users_index') }}" role="button">Users</a>
 </p>
-{% endif %}
+{% endif %} {% endif %}
 <!--
   TODO: list separately "My subjects" and 10 most recent "Other user's subjects" + link to "all"
 -->
