@@ -63,6 +63,4 @@ def auth_register():
 @app.route("/auth/accounts", methods=["GET"])
 @login_required(role="ADMIN")
 def users_index():
-    #TODO: ability to promote a user to admin
-    #IDEA: ability to delete a user
     return render_template("auth/list.html", accounts = User.users_and_roles())

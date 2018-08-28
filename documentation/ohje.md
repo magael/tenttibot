@@ -57,26 +57,29 @@ python run.py
 
 6. Sovellusta voi nyt käyttää osoitteessa http://localhost:5000/ tai http://127.0.0.1:5000/.
 
-### Alkuperäisen admin-roolin lisääminen:
+### Admin-roolin lisääminen:
 
 1. Rekisteröidy sovelluksessa, esimerkiksi nimimerkillä admin.
 
-2. Syötä komentokehotteesa, sovelluksen juuressa komento:
+2. Avaa SQLite komentokehotteesa, sovelluksen juuressa komennolla
 
 ```
 sqlite3 application/questions.db
 ```
 
-3. Lisätäksesi admin-roolin "admin"-nimiselle käyttäjälle syötä seuraavat kaksi SQL-komentoa:
-
+3. Alustetaan rooleihin järjestelmänvalvoja:
 ```
 INSERT INTO Role (name) VALUES ('ADMIN');
+```
 
+4. Lisätäksesi admin-roolin "admin"-nimiselle käyttäjälle syötä seuraava SQL-komento:
+
+```
 UPDATE user_roles SET role_id = (SELECT id FROM Role r WHERE r.name = 'ADMIN')
  WHERE account_id IN (SELECT id FROM account WHERE account.username = 'admin');
 ```
 
-4. Nyt admin-rooli on lisätty valitsemallesi käyttäjälle. Voit varmistaa asian esimerkiksi listaamalla kaikkien käyttäjien roolit kyselyllä
+5. Nyt admin-rooli on lisätty valitsemallesi käyttäjälle. Voit varmistaa asian esimerkiksi listaamalla kaikkien käyttäjien roolit kyselyllä
 
 ```
 SELECT a.username, r.name FROM account a
@@ -84,4 +87,10 @@ SELECT a.username, r.name FROM account a
   GROUP BY r.name, a.username;
 ```
 
-tai admin-tunnuksilla kirjautuneena linkistä "Users".
+  tai admin-tunnuksilla kirjautuneena linkistä "Users".
+
+  Voit lisätä kohdan 3 jälkeen myös lisää järjestelmänvalvojia toistamalla kohdat 1 ja 4 haluamallasi toisella käyttäjätunnuksella, esim.
+
+```
+"...WHERE account.username = 'adminkakkonen');"
+```

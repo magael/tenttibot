@@ -17,7 +17,8 @@
 <p>
   By {{ author.username }}
 </p>
-<table>
+
+<table class="questionsText">
   <tr>
     <th>Question</th>
     {% if current_user.id == author.id %}
@@ -26,7 +27,6 @@
   </tr>
   {% if questions is defined %} {% for question in questions %}
   <tr>
-    <!--TODO: vertically rather than horizontally expanding text areas-->
     <td>{{ question.name }}</td>
     {% if current_user.id == author.id %}
     <td>{{ question.mastery }}</td>

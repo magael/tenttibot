@@ -14,6 +14,9 @@
 ###
 
 * Kirjautumattomana käyttäjänä näen alueiden sisältämät kysymykset, jotta voin arvioida sen, ja sovelluksen ylipäätään, hyödyllisyyttä itselleni.
+  ```
+  Question.query.filter_by(subject_id=subject_id)
+  ```
 * Kirjautumattomana käyttäjänä näen kysymysten listauksessa (muun muassa otsikoiden lisäksi) aihealueen luojan, jotta voin erottaa samannimiset aineistot toisistaan, aineiston tekijä saa ansaitsemansa tunnustuksen ja voin esimerkiksi saada selville, että aineisto on jo tuntemani henkilön luoma.
   ```
   SELECT a.username FROM account a
