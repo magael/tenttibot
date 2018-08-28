@@ -13,7 +13,6 @@ from application.questions.forms import QuestionForm
 def questions_index(subject_id):
     """Page for listing questions."""
     s = Subject.query.get(subject_id)
-    # IDEA: write out the query in SQL into a function where questions are listed ordered by q.date_created
     q = Question.query.filter_by(subject_id=subject_id)
     a = User.find_author(subject_id)
     admin = current_user_is_admin()
