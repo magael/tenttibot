@@ -10,6 +10,9 @@
   LEFT JOIN Question q ON q.subject_id = s.id 
   GROUP BY s.id ORDER BY s.date_created DESC;
   ```
+
+###
+
 * Kirjautumattomana käyttäjänä näen alueiden sisältämät kysymykset, jotta voin arvioida sen, ja sovelluksen ylipäätään, hyödyllisyyttä itselleni.
 * Kirjautumattomana käyttäjänä näen kysymysten listauksessa (muun muassa otsikoiden lisäksi) aihealueen luojan, jotta voin erottaa samannimiset aineistot toisistaan, aineiston tekijä saa ansaitsemansa tunnustuksen ja voin esimerkiksi saada selville, että aineisto on jo tuntemani henkilön luoma.
   ```
@@ -18,6 +21,9 @@
   ON us.subject_id = *halutun aihealueen id*
   WHERE a.id = us.account_id;
   ```
+
+###
+
 * Kirjautumattomana pystyn rekisteröitymään, jotta minulla on käytettävissäni omat käyttäjätunnukset.
 * Kirjautumattomana käyttäjänä pystyn kirjautumaan sisään, jotta pääsen käyttämään kirjautumattomilta käyttäjiltä estettyjä toimintoja, mikäli minulla on tiedossani käyttäjätunnus ja salasana.
 
