@@ -1,6 +1,6 @@
 {% extends "layout.html" %} {% block body %} {% if not current_user.is_authenticated %}
 <p>
-  Welcome! <a href="{{ url_for('auth_login') }}">Sign in</a> to start using the app.
+  Welcome! <a href="{{ url_for('auth_login') }}">Sign in</a> to start using the application.
 </p>
 {% else %}
 <p>

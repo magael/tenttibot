@@ -3,7 +3,21 @@
 ### Kirjautumaton käyttäjä
 
 * Kirjautumattomana käyttäjänä näen etusivulla alueiden listauksessa kaikki aineistot, jotta voin valita tarkasteltavaksi minua kiinnostavan aihealueen.
-* Kirjautumattomana käyttäjänä näen alueiden sisällön, jotta voin arvioida sen, ja sovelluksen ylipäätään, hyödyllisyyttä itselleni.
+* Kirjautumattomana käyttäjänä näen etusivulla alueiden sisältämien kysymysten lukumäärät, jotta tiedän, mitkä aineistoista ovat tyhjiä ja mitkä laajoja.
+  * Yllä oleviin kahteen toiminnallisuuteen liittyvä SQL-kysely:
+  ```
+  SELECT s.id, s.name, COUNT(q.id) FROM Subject s 
+  LEFT JOIN Question q ON q.subject_id = s.id 
+  GROUP BY s.id ORDER BY s.date_created DESC;
+  ```
+* Kirjautumattomana käyttäjänä näen alueiden sisältämät kysymykset, jotta voin arvioida sen, ja sovelluksen ylipäätään, hyödyllisyyttä itselleni.
+* Kirjautumattomana käyttäjänä näen kysymysten listauksessa (muun muassa otsikoiden lisäksi) aihealueen luojan, jotta voin erottaa samannimiset aineistot toisistaan, aineiston tekijä saa ansaitsemansa tunnustuksen ja voin esimerkiksi saada selville, että aineisto on jo tuntemani henkilön luoma.
+  ```
+  SELECT a.username FROM account a
+  LEFT JOIN user_subjects us
+  ON us.subject_id = *halutun aihealueen id*
+  WHERE a.id = us.account_id;
+  ```
 * Kirjautumattomana pystyn rekisteröitymään, jotta minulla on käytettävissäni omat käyttäjätunnukset.
 * Kirjautumattomana käyttäjänä pystyn kirjautumaan sisään, jotta pääsen käyttämään kirjautumattomilta käyttäjiltä estettyjä toimintoja, mikäli minulla on tiedossani käyttäjätunnus ja salasana.
 
@@ -33,3 +47,10 @@
 <br>
 <br>
 * Järjestelmänvalvojana pystyn listaamaan kaikki käyttäjät ja heidän käyttäjäroolinsa, jotta pysyn kartalla käyttäjien määrästä, ylläpitäjien määrästä, sekä siitä, kenellä on järjestelmänvalvojan oikeudet.
+  ```
+  SELECT a.username, r.name FROM account a
+  LEFT JOIN Role r 
+  ON a.id IN (SELECT account_id FROM user_roles ur 
+  WHERE ur.account_id = a.id AND ur.role_id = r.id)
+  GROUP BY r.name, a.username;
+  ```
