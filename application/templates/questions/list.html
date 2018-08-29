@@ -1,43 +1,105 @@
-{% extends "layout.html" %} {% block body %} {% if current_user.id == author.id %}
+{% extends "layout.html" %} {% block body %}
+
+{% if current_user.id == author.id %}
 <p>
-  <a class="btn btn-outline-primary" href="{{ url_for('questions_form', subject_id=subject_id) }}" role="button">
+  <a class="btn btn-primary" href="{{ url_for('questions_form', subject_id=subject_id) }}" role="button">
     Add a question
   </a>
 </p>
-{% endif %} {% if current_user.id == author.id or admin %}
+{% endif %}
+
+{% if current_user.id == author.id or admin %}
 <p>
   <a class="btn btn-outline-dark" href="{{ url_for('subjects_subject', subject_id=subject_id) }}" role="button">
     Edit subject
   </a>
 </p>
 {% endif %}
+
 <h2>
   {{ subject_name }}
 </h2>
+
 <p>
   By {{ author.username }}
 </p>
 
-<table class="questionsText">
-  <tr>
-    <th>Question</th>
-    {% if current_user.id == author.id %}
-    <th>Mastery</th>
-    {% endif %}
-  </tr>
-  {% if questions is defined %} {% for question in questions %}
-  <tr>
-    <td>{{ question.name }}</td>
-    {% if current_user.id == author.id %}
-    <td>{{ question.mastery }}</td>
-    {% endif %} {% if current_user.id == author.id or admin %}
-    <td>
-      <form method="GET" action="{{ url_for('questions_question', subject_id=question.subject_id, question_id=question.id) }}">
-        <input type="submit" value="Edit" />
-      </form>
-    </td>
-    {% endif %}
-  </tr>
-  {% endfor %} {% endif %}
-</table>
+<h4 class="pt-3">
+  Question cards
+</h4>
+
+<!--IDEA: accordion collapse-->
+{% if questions is defined %}
+{% for question in questions %}
+<div class="card">
+
+  <div class="card-body">
+    <p class="lead">
+      {{ question.name }}
+    </p>
+  </div>
+
+  <div class="card-footer">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col">
+          <button class="btn btn-primary" data-toggle="collapse" data-target="#{{ question.id }}" aria-expanded="true" aria-controls="collapseOne">
+            Reveal answer
+          </button>
+        </div>
+        
+        {% if current_user.id == author.id or admin %}
+        <div class="col">
+          <a class="btn btn-outline-dark" href="{{ url_for('questions_question', subject_id=question.subject_id, question_id=question.id) }}", role="button">
+            Edit question
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    
+    <div id="{{ question.id }}" class="collapse" aria-labelledby="headingOne">
+      
+      <div class="container">
+        <div class="row pt-3">
+          <p class="lead">
+            {{ question.answer }}
+          </p>
+        </div>
+
+        {% if current_user.id == author.id %}
+        <div class="row">
+          <div class="col">
+            
+            <form method="POST" action="{{ url_for('questions_edit', subject_id=question.subject.id, question_id=question.id) }}">
+              <div class="form-group">
+                <select class="form-control" id="formMastery">
+                  <option hidden>{{ question.mastery }}</option>
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+          </div>
+              
+              <!--TODO: updating mastery form post-->
+              <div class="col">
+                <input type="submit" value="TODO: Update mastery" />
+              </div>
+            
+            </form>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
 {% endblock %}
