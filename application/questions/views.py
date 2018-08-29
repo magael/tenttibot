@@ -16,7 +16,8 @@ def questions_index(subject_id):
     q = Question.query.filter_by(subject_id=subject_id)
     a = User.find_author(subject_id)
     admin = current_user_is_admin()
-    return render_template("questions/list.html", questions=q, subject_id=subject_id, subject_name=s.name, author=a.first(), admin=admin)
+    form = QuestionForm(request.form)
+    return render_template("questions/list.html", questions=q, subject_id=subject_id, subject_name=s.name, author=a.first(), admin=admin, form=form)
 
 
 @app.route("/<subject_id>/new/", methods=["GET"])
@@ -50,10 +51,32 @@ def questions_edit(subject_id, question_id):
 
     if not form.validate():
         return render_template("questions/question.html", form=form, question=q, subject_name=s.name)
-
+    
     q.name = form.name.data
     q.answer = form.answer.data
     q.mastery = form.mastery.data
+
+    db.session().commit()
+
+    return redirect(url_for("questions_index", subject_id=subject_id))
+
+@app.route("/<subject_id>/<question_id>/mastery/", methods=["POST"])
+@login_required()
+def questions_edit_mastery(subject_id, question_id):
+    """Posting data to edit a question"""
+    if not is_creator(subject_id) and not current_user_is_admin():
+        return login_manager.unauthorized()
+
+    form = QuestionForm(request.form)
+    q = Question.query.get(question_id)
+    s = Subject.query.get(subject_id)
+
+    # validation
+    m = form.mastery.data
+    if not 0 <= m <= 5:
+        return redirect(url_for("questions_index", subject_id=subject_id))
+
+    q.mastery = m
 
     db.session().commit()
 

@@ -54,7 +54,7 @@
         {% if current_user.id == author.id or admin %}
         <div class="col">
           <a class="btn btn-outline-dark" href="{{ url_for('questions_question', subject_id=question.subject_id, question_id=question.id) }}", role="button">
-            Edit question
+            Edit card
           </a>
         </div>
         {% endif %}
@@ -74,9 +74,9 @@
         <div class="row">
           <div class="col">
             
-            <form method="POST" action="{{ url_for('questions_edit', subject_id=question.subject.id, question_id=question.id) }}">
+            <form method="POST" action="{{ url_for('questions_edit_mastery', subject_id=question.subject.id, question_id=question.id) }}">
               <div class="form-group">
-                <select class="form-control" id="formMastery">
+                <select class="form-control" id="{{ form.mastery }}">
                   <option hidden>{{ question.mastery }}</option>
                   <option>0</option>
                   <option>1</option>
@@ -87,10 +87,9 @@
                 </select>
               </div>
           </div>
-              
-              <!--TODO: updating mastery form post-->
+
               <div class="col">
-                <input type="submit" value="TODO: Update mastery" />
+                <input type="submit" value="Update" />
               </div>
             
             </form>
