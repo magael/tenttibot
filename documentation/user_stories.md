@@ -13,7 +13,7 @@
 
 ###
 
-* Kirjautumattomana käyttäjänä näen alueiden sisältämät kysymykset, jotta voin arvioida sen, ja sovelluksen ylipäätään, hyödyllisyyttä itselleni.
+* Kirjautumattomana käyttäjänä näen alueiden sisältämät kysymykset ja mallivastaukset, jotta voin arvioida kyseisen aineiston (ja sovelluksen ylipäätään) hyödyllisyyttä itselleni.
   ```
   Question.query.filter_by(subject_id=subject_id)
   ```
@@ -43,6 +43,7 @@
 * Kirjautuneena käyttäjänä pystyn muokkaamaan itse luomieni kysymysten mallivastauksia, jotta voin esimerkiksi korjata kirjoitusvirheitä tai lisätä informaatiota.
 * Kirjautuneena käyttäjänä pystyn muokkaamaan itse luomieni korttien oppimisen itsearviota (mastery, mastered), jotta voin seurata edistymistäni, ja rajata kuulusteluaineistoa, keskittyen enimmäkseen vähemmän hallitsemaani materiaaliin.
 * Kirjautuneena käyttäjänä pystyn poistamaan itse luomiani kortteja, mikäli olen esimerkiksi lisännyt vahingossa kaksi hyvin samanlaista korttia, tai haluan nopeasti ja radikaalisti muokata aineistoa.
+* Kirjautuneena käyttäjänä voin myös paljastaa ja piilottaa mallivastauksia sekä päivittää itsearviota kysymysten listauksessa, jotta voin kätevästi kuulustella aineistoa itseltäni.
 
 ###
 
