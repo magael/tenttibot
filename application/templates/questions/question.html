@@ -3,15 +3,12 @@
   {{ subject_name }}
 </h2>
 
+<form method="POST" action="{{ url_for('questions_delete', subject_id=question.subject_id, question_id=question.id) }}">
+  <input type="submit" value="Delete question" />
+</form>
+
 <form method="POST" action="{{ url_for('questions_edit', subject_id=question.subject.id, question_id=question.id) }}">
   <table>
-    <tr>
-      <td>
-        <form method="POST" action="{{ url_for('questions_delete', subject_id=question.subject_id, question_id=question.id) }}">
-          <input type="submit" value="Delete question" />
-        </form>
-      </td>
-    </tr>
     <tr>
       <td>
           <label class="pt-3 mb-0">
@@ -21,7 +18,7 @@
     </tr>
     <tr>
       <td>
-        <textarea id="name" name="name" rows="5">{{ question.name }}</textarea>
+        <textarea maxlength="144" id="name" name="name" rows="5">{{ question.name }}</textarea>
       </td>
       <td>
         <ul>
@@ -40,7 +37,7 @@
     </tr>
     <tr>
       <td>
-        <textarea id="answer" name="answer" rows="5">{{ question.answer }}</textarea>
+        <textarea maxlength="144" id="answer" name="answer" rows="5">{{ question.answer }}</textarea>
       </td>
       <td>
         <ul>
