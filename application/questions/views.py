@@ -13,7 +13,7 @@ from application.questions.forms import QuestionForm
 def questions_index(subject_id):
     """Page for listing questions."""
     s = Subject.query.get(subject_id)
-    q = Question.query.filter_by(subject_id=subject_id)
+    q = Question.find_questions_by_subject(subject_id)
     a = User.find_author(subject_id)
     admin = current_user_is_admin()
     form = QuestionForm(request.form)
@@ -68,14 +68,13 @@ def questions_edit_mastery(subject_id, question_id):
         return login_manager.unauthorized()
 
     form = QuestionForm(request.form)
-    q = Question.query.get(question_id)
-    s = Subject.query.get(subject_id)
 
     # validation
     m = form.mastery.data
     if not 0 <= m <= 5:
         return redirect(url_for("questions_index", subject_id=subject_id))
 
+    q = Question.query.get(question_id)
     q.mastery = m
 
     db.session().commit()
@@ -105,11 +104,11 @@ def questions_create(subject_id):
         return login_manager.unauthorized()
 
     form = QuestionForm(request.form)
+    q = Question(form.name.data, form.answer.data, form.mastery.data)
 
     if not form.validate():
-        return render_template("questions/new.html", form=form, subject_id=subject_id)
+        return render_template("questions/new.html", form=form, subject_id=subject_id, question=q)
 
-    q = Question(form.name.data, form.answer.data, form.mastery.data)
     q.subject_id = subject_id
 
     db.session().add(q)

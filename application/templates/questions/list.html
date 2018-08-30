@@ -29,6 +29,7 @@
 </h4>
 
 <!--IDEA: accordion collapse-->
+<!--IDEA: if mastery 0-1: card outline red, 2-3: yellow, 4-5: green-->
 {% if questions is defined %}
 {% for question in questions %}
 <div class="card">
@@ -80,7 +81,7 @@
         <div class="row">
           <div class="col">
             
-            <form method="POST" action="{{ url_for('questions_edit_mastery', subject_id=question.subject.id, question_id=question.id) }}">
+            <form method="POST" action="{{ url_for('questions_edit_mastery', subject_id=question.subject_id, question_id=question.id) }}">
               <div class="form-group">
                 <select class="form-control" id="{{ form.mastery }}">
                   <option hidden>{{ question.mastery }}</option>
