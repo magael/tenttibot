@@ -13,9 +13,10 @@
 
 ###
 
-* Kirjautumattomana käyttäjänä näen alueiden sisältämät kysymykset ja mallivastaukset, jotta voin arvioida kyseisen aineiston (ja sovelluksen ylipäätään) hyödyllisyyttä itselleni.
+* Kirjautumattomana käyttäjänä näen alueiden sisältämät kysymykset ja mallivastaukset, jotta voin tutustua sovellukseen ja arvioida sen hyödyllisyyttä itselleni.
   ```
-  Question.query.filter_by(subject_id=subject_id)
+  SELECT q.name Q, q.answer A FROM Question q
+  WHERE q.subject_id = *halutun aihealueen id*;
   ```
 * Kirjautumattomana käyttäjänä näen kysymysten listauksessa (muun muassa otsikoiden lisäksi) aihealueen luojan, jotta voin erottaa samannimiset aineistot toisistaan, aineiston tekijä saa ansaitsemansa tunnustuksen ja voin esimerkiksi saada selville, että aineisto on jo tuntemani henkilön luoma.
   ```
