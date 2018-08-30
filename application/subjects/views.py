@@ -24,7 +24,7 @@ def subjects_create():
     form = SubjectForm(request.form)
 
     if not form.validate():
-        return render_template("index.html")
+        return render_template("subjects/new.html", form=form)
 
     s = Subject(form.name.data)
 
