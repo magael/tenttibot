@@ -75,7 +75,7 @@
           </p>
         </div>
 
-        {% if current_user.id == author.id %}
+        {% if current_user.is_authenticated %}
         <div class="row pl-3">
           <small class="text-muted">
             Mastery:

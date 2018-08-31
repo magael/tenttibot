@@ -73,9 +73,6 @@ def questions_edit(subject_id, question_id):
 @login_required()
 def questions_edit_mastery(subject_id, question_id):
     """Posting data to edit a question"""
-    if not is_creator(subject_id) and not current_user_is_admin():
-        return login_manager.unauthorized()
-
     form = QuestionForm(request.form)
 
     # validation
