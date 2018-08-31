@@ -28,8 +28,7 @@ Password: admin123
 
 [Tietokantakaavio](https://github.com/magael/tenttibot/blob/master/documentation/diagram.png)
 
-[Jatkokehitysideoita]
-(https://github.com/magael/tenttibot/blob/master/documentation/jatkokehitys.md)
+[Jatkokehitysideoita](https://github.com/magael/tenttibot/blob/master/documentation/jatkokehitys.md)
 
 ## CREATE TABLE -lauseet
 
