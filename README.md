@@ -2,11 +2,11 @@
 
 Projekti on web-sovellus, joka toimii oppimisen apuvälineenä. "Tenttibotti" kuulustelee käyttäjää hänen tietokantaan syöttämänsä aineiston perusteella.
 
-Sovellus voi auttaa esimerkiksi pääsykokeisiin lukemisessa, mutta myös muut kuin opiskelijat voivat hyötyä sovelluksen käytöstä. Käyttäjä, jolla on tavoitteena esimerkiksi opetella kirjan sisältö, voi muodostaa harjoituskysymyksiä ja mallivastauksia omista alleviivauksistaan ja muistiinpanoistaan.
+Sovellus voi auttaa esimerkiksi pääsykokeisiin lukemisessa, mutta myös muut kuin opiskelijat voivat hyötyä sovelluksen käyttämisestä. Käyttäjä, jolla on tavoitteena esimerkiksi opetella kirjan sisältö, voi muodostaa harjoituskysymyksiä ja mallivastauksia omista alleviivauksistaan ja muistiinpanoistaan.
 
 Tenttaus tapahtuu tarkastelemalla vapaasti valitun aineiston kysymyskortteja yksi kerrallaan. Käyttäjän annettua oma vastauksensa näytetään mallivastaus. Tämän jälkeen käyttäjä voi arvioida osaamistaan vertaamalla viimeisintä vastaustaan mallivastaukseen. Itsearvioinnit auttavat rajaamaan kuulusteluaineistoa.
 
-Paras tapa oppia on luoda kuulusteluaineisto itse itselleen, mutta sovellus voi myös toimia esimerkiksi lukupiirin kanssa yhteisesti käytettynä. Lisäksi käyttäjä voi löytää muiden tekemiä aihepiirejä, joita ei aiemmin edes tiennyt haluavansa opetella. Myös opettajat voivat käyttää sovellusta eräänä opetusmenetelmänä.
+Paras tapa oppia on luoda kuulusteluaineisto itse itselleen, mutta sovellus voi myös toimia esimerkiksi lukupiirin kanssa yhteisesti käytettynä. Lisäksi käyttäjä voi löytää muiden tekemiä aineistoja aiheista, joita ei edes tiennyt haluavansa opetella. Myös opettajat voivat käyttää sovellusta eräänä opetusmenetelmänä.
 
 ## Testitunnukset
 
