@@ -24,14 +24,21 @@ Lisäksi voisi olla näkymä kunkin kuulustelun lopputuloksesta: tilastoja oppim
 Toteutusta varten luonnostellut tietokantataulut:
 
 **Quiz**
+
 id
+
 date_created
+
 (fk) user_id
 
 **QuizQuestions**
+
 (pk/fk) quiz_id
+
 (pk/fk) question_id
+
 mastery_before
+
 mastery_after
 
 ### Jakaminen
