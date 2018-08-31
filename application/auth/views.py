@@ -29,7 +29,6 @@ def auth_logout():
 
 @app.route("/auth/register", methods=["GET", "POST"])
 def auth_register():
-    #TODO: chop into smaller functions
     if request.method == "GET":
         return render_template("auth/register.html", form=RegistrationForm())
 

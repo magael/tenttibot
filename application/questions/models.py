@@ -19,13 +19,10 @@ class Question(Base):
 
     @staticmethod
     def find_questions_by_subject_and_masteries_by_account(subject_id, account_id):
-        # GROUP BY?
         stmt = text("SELECT q.id, q.name, q.answer, m.mastery FROM Question q LEFT JOIN Mastery m"
                     " ON m.question_id = q.id AND m.account_id = :account_id"
                     " WHERE q.subject_id = :subject_id"
                     " ORDER BY m.mastery;").params(subject_id=subject_id, account_id=account_id)
-
-        # isn't the res into dict necessary?
 
         res = db.engine.execute(stmt)
 
@@ -42,6 +39,4 @@ class Mastery(db.Model):
                             nullable=False)
 
     def __init__(self, mastery):
-        # if the user is not the creator, mastery = 0?
-        # self.mastery = 0
         self.mastery = mastery

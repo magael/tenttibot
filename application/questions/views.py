@@ -129,14 +129,6 @@ def questions_create(subject_id):
     db.session().add(q)
     db.session().commit()
 
-    # TODO: add initial mastery, like
-    # m = Mastery(form.mastery.data)
-    # m.account_id = current_user.get_id()
-    # m.question_id # isqid
-    # m.mastery = form.mastery.data
-    # db.session.add(m)
-    # but needs q_id
-
     return redirect(url_for("questions_index", subject_id=subject_id))
 
 

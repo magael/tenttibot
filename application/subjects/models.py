@@ -13,7 +13,6 @@ class Subject(Base):
         self.name = name
 
 
-    # TODO: list separately "My subjects" and 10 most recent "Other user's subjects"
     @staticmethod
     def subjects_with_question_counts():
         """Subjects with the same name are listed separately."""

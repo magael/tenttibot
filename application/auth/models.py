@@ -69,9 +69,8 @@ class User(Base):
 
     @staticmethod
     def find_author(subject_id):
-        # TODO: The following would not work correctly with many users per subject
-        # Consider switching user_subjects to many-to-one
-        # Or add date_created & -modified to user_subjects and order this query by us.date_created
+        # Currently works, but needs to be developed further
+        # when subjects get more users assigned to them in user_subjects.
         stmt = text("SELECT * FROM account a"
                     " LEFT JOIN user_subjects us"
                     " ON us.subject_id = :subject_id"

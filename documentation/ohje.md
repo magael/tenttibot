@@ -20,7 +20,7 @@ Järjestelmänvalvojana kirjautuneena voit käyttää etusivulla sijaitsevaa lin
 
 ## Sovelluksen käyttö paikallisesti
 
-## Vaatimukset:
+### Vaatimukset:
 
 Tarvitset tuen Python-kielisten ohjelmien suorittamiseen: vähintään Pythonin version 3.5 (https://www.python.org/downloads/).
 
