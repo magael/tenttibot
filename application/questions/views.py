@@ -5,7 +5,7 @@ from application import app, db, login_manager, login_required
 from application.views import current_user_is_admin
 from application.auth.models import User
 from application.subjects.models import Subject
-from application.questions.models import Question
+from application.questions.models import Question, Mastery
 from application.questions.forms import QuestionForm
 
 
@@ -13,7 +13,7 @@ from application.questions.forms import QuestionForm
 def questions_index(subject_id):
     """Page for listing questions."""
     s = Subject.query.get(subject_id)
-    q = Question.find_questions_by_subject(subject_id)
+    q = Question.find_questions_by_subject_and_masteries_by_account(subject_id, current_user.get_id())
     a = User.find_author(subject_id)
     admin = current_user_is_admin()
     form = QuestionForm(request.form)
@@ -54,7 +54,16 @@ def questions_edit(subject_id, question_id):
     
     q.name = form.name.data
     q.answer = form.answer.data
-    q.mastery = form.mastery.data
+
+    m = Mastery.query.filter_by(account_id=current_user.get_id(), question_id=question_id).first()
+
+    if not m:
+        ma = Mastery(form.mastery.data)
+        ma.account_id = current_user.get_id()
+        ma.question_id = question_id
+        db.session.add(ma)
+    else:
+        m.mastery = form.mastery.data
 
     db.session().commit()
 
@@ -70,12 +79,20 @@ def questions_edit_mastery(subject_id, question_id):
     form = QuestionForm(request.form)
 
     # validation
-    m = form.mastery.data
-    if not 0 <= m <= 5:
+    if not 0 <= form.mastery.data <= 5:
         return redirect(url_for("questions_index", subject_id=subject_id))
 
     q = Question.query.get(question_id)
-    q.mastery = m
+
+    ma = Mastery.query.filter_by(account_id=current_user.get_id(), question_id=question_id).first()
+    
+    if not ma:
+        ma = Mastery(form.mastery.data)
+        ma.account_id = current_user.get_id()
+        ma.question_id = question_id
+        db.session.add(ma)
+    else:
+        ma.mastery = form.mastery.data
 
     db.session().commit()
 
@@ -104,7 +121,8 @@ def questions_create(subject_id):
         return login_manager.unauthorized()
 
     form = QuestionForm(request.form)
-    q = Question(form.name.data, form.answer.data, form.mastery.data)
+
+    q = Question(form.name.data, form.answer.data)
 
     if not form.validate():
         return render_template("questions/new.html", form=form, subject_id=subject_id, question=q)
@@ -113,6 +131,14 @@ def questions_create(subject_id):
 
     db.session().add(q)
     db.session().commit()
+
+    # TODO: add initial mastery, like
+    # m = Mastery(form.mastery.data)
+    # m.account_id = current_user.get_id()
+    # m.question_id # isqid
+    # m.mastery = form.mastery.data
+    # db.session.add(m)
+    # but needs q_id
 
     return redirect(url_for("questions_index", subject_id=subject_id))
 

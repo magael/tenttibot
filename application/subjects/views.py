@@ -6,7 +6,7 @@ from application.views import current_user_is_admin
 from application.auth.models import user_subjects
 from application.subjects.forms import SubjectForm
 from application.subjects.models import Subject
-from application.questions.models import Question
+from application.questions.models import Question, Mastery
 from application.questions.views import is_creator
 
 
@@ -70,10 +70,20 @@ def subjects_delete(subject_id):
         return login_manager.unauthorized()
 
     s = Subject.query.get(subject_id)
-    questions = Question.query.filter_by(subject_id=subject_id)
+    questions = Question.query.filter_by(subject_id=subject_id)    
 
+    # tbd = []
+    # for q in questions:
+    #     tbd.append(q)
+    # for t in tbd:
+    #     db.session().delete(t)
+    
     for q in questions:
+        masteries = Mastery.query.filter_by(question_id=q.id)
+        for m in masteries:
+            db.session().delete(m)
         db.session().delete(q)
+
     db.session().delete(s)
     db.session().commit()
 

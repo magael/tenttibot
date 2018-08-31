@@ -24,6 +24,8 @@ class User(Base):
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
+    masteries = db.relationship('Mastery', backref='user', lazy=True)
+
     subjects = db.relationship('Subject', secondary=user_subjects, lazy='subquery',
                                backref=db.backref('users', lazy=True))
     auth_roles = db.relationship('Role', secondary=user_roles, lazy='subquery',

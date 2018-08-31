@@ -58,7 +58,9 @@
       <td>
         <div class="form-group">
           <select class="form-control" id="{{ form.mastery }}">
+            {% if question.mastery %}
             <option hidden>{{ question.mastery }}</option>
+            {% endif %}
             <option>0</option>
             <option>1</option>
             <option>2</option>
