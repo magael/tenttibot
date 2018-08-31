@@ -39,12 +39,24 @@
 
 ###
 
-* Kirjautuneena käyttäjänä voin lisätä itse luomiini aineistoihin uusia kysymyksiä / kuulustelukortteja (Question) ja niihin mallivastaukset ja osaamisen lähtötasot, jotta minulla on materiaalia, mitä kuulustella.
+* Kirjautuneena käyttäjänä voin lisätä itse luomiini aineistoihin uusia kysymyksiä / kuulustelukortteja (Question) ja niihin mallivastaukset jotta minulla on materiaalia, mitä kuulustella.
 * Kirjautuneena käyttäjänä pystyn muokkaamaan itse luomieni korttien tekstiä (esim. kysymystä), jotta voin esimerkiksi korjata kirjoitusvirheitä tai lisätä siihen informaatiota.
 * Kirjautuneena käyttäjänä pystyn muokkaamaan itse luomieni kysymysten mallivastauksia, jotta voin esimerkiksi korjata kirjoitusvirheitä tai lisätä informaatiota.
-* Kirjautuneena käyttäjänä pystyn muokkaamaan itse luomieni korttien oppimisen itsearviota (mastery, mastered), jotta voin seurata edistymistäni, ja rajata kuulusteluaineistoa, keskittyen enimmäkseen vähemmän hallitsemaani materiaaliin.
 * Kirjautuneena käyttäjänä pystyn poistamaan itse luomiani kortteja, mikäli olen esimerkiksi lisännyt vahingossa kaksi hyvin samanlaista korttia, tai haluan nopeasti ja radikaalisti muokata aineistoa.
-* Kirjautuneena käyttäjänä voin myös paljastaa ja piilottaa mallivastauksia sekä päivittää itsearviota kysymysten listauksessa, jotta voin kätevästi kuulustella aineistoa itseltäni.
+
+###
+
+* Kirjautuneena käyttäjänä voin paljastaa ja piilottaa kysymysten mallivastauksia, jotta voin kuulustella aineistoa itseltäni.
+
+  ```
+  SELECT q.id, q.name, q.answer, m.mastery FROM Question q
+  LEFT JOIN Mastery m ON m.question_id = q.id
+  AND m.account_id = *kirjautuneen käyttäjän id*
+  WHERE q.subject_id = *halutun aihealueen id*
+  ORDER BY m.mastery;
+  ```
+
+* Kirjautuneena käyttäjänä pystyn muokkaamaan korttien oppimisen itsearviota (Mastery), jotta voin seurata edistymistäni, ja rajata kuulusteluaineistoa, keskittyen enimmäkseen vähemmän hallitsemaani materiaaliin.
 
 ###
 
