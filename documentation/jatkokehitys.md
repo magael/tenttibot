@@ -15,7 +15,7 @@ Kysymyksen listauksessa linkki uuteen kuulusteluun, jossa samassa, tai kuulustel
 
 Kysymyskortteja kuulustellaan yksitellen, satunnaisessa järjestyksessä, kunnes pakka on kertaalleen käyty läpi.
 
-Joka kysymyksen kohdalla on nykyisen kaltainen korttinäkymä, jossa voi arvata ja tarkastaa vastauksen sekä päivittää itsearvio.
+Joka kysymyksen kohdalla on muutoin nykyisen kaltainen korttinäkymä, mutta siinä on lisäksi kenttä, johon vastaus syötetään. Vastauksen (saa olla myös tyhjä) jätettyään (napin painauksella / Enterillä) käyttäjälle paljastuu mallivastaus, ja hän voi päivittää itsearvion.
 
 Kun pakka on käyty läpi, kysytään uuden kuulustelun aloittamisesta uudella rajauksella, esimerkiksi edellä mainitulla kaavakkeella.
 
@@ -37,9 +37,11 @@ date_created
 
 (pk/fk) question_id
 
-mastery_before
+answer: String
 
-mastery_after
+mastery_before: Integer
+
+mastery_after: Integer
 
 ### Jakaminen
 
@@ -50,6 +52,42 @@ mastery_after
 * Jos salasana on oikea, luodaan yhteys user_subjects:iin.
 
 ### Muita
+
+* reps(repetitions)-muuttuja kortteihin (ja graduation)
+
+* Käyttöohjeet ajan tasalle
+
+* Mastery ehkä table eikä db.model
+
+* Sivutus
+
+* (valinnaiset) koulutustaso, organisaatio, oppiaine -yläkategoriat
+
+* Mahdollisia uusia käyttäjärooleja voisi olla esim. opettaja, esimerkkilukion opettaja
+
+* Monivalintamoodi
+
+* (actual)koe-moodi
+
+* Harjotuskoemoodi, missä valitaan randomilla aineistosta kysymyksiä tietyn pistemäärän täyttämiseksi. pisteiden perusteella arvosana
+
+* Salasanan bruteforceyritys johtaa aikalukkoon
+
+* Info for students, for educators, oppimisesta, käyttöohje, about
+
+* Admin voi muokkata käyttäjien rooleja
+
+* Admin voi poistaa käyttäjiä (samalla kaikki sen aineistot)
+
+* Adminille users-linkki navbariin
+
+* HTML-elementtien nimeäminen ym. accessibility
+
+* Suosikki-subjectien lisäys
+
+* List subjectit joissa (kirjautunut käyttäjä itse) on viimeksi muokannut masterya
+
+* Herokun kaatuilun fiksaus
 
 * Aineistojen (Subject) muokkausoikeuksien jakaminen käyttäjien välillä
 * Aineistoista kopioiden luominen (jotta voi lisätä ja muokata oman kopioonsa kysymyskortteja)
