@@ -104,6 +104,9 @@ def questions_delete(subject_id, question_id):
         return login_manager.unauthorized()
 
     q = Question.query.get(question_id)
+
+    # TODO: BUG: delete question from mastery (from all users)
+
     db.session().delete(q)
     db.session().commit()
 

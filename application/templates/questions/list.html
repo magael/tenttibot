@@ -68,12 +68,13 @@
     
     <div id="{{ question.id }}" class="collapse" aria-labelledby="headingOne">
       
+      <div class="card-body">
+        <p class="lead">
+          {{ question.answer }}
+        </p>
+      </div>
+      
       <div class="container">
-        <div class="row pt-4">
-          <p class="lead">
-            {{ question.answer }}
-          </p>
-        </div>
 
         {% if current_user.is_authenticated %}
         <div class="row pl-3">

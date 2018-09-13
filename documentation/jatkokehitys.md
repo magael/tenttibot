@@ -53,6 +53,8 @@ mastery_after: Integer
 
 ### Muita
 
+* Kysymysten deletointi-bugin korjaus (myös mastery poistettava erikseen)
+
 * reps(repetitions)-muuttuja kortteihin (ja graduation)
 
 * Käyttöohjeet ajan tasalle
